@@ -12,7 +12,6 @@ func set_health(value):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	connect("area_entered", self, "on_area_entered")
 	$AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
 
 func on_animation_finished(anim_name: String):
