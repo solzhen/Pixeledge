@@ -81,3 +81,15 @@ func _physics_process(delta):
 		$Attack.position.x = 42
 		
 
+
+
+func _on_Continue_pressed():
+	pass # Replace with function body.
+
+
+func _on_Retry_pressed():
+	pass # Replace with function body.
+
+
+func _on_Quit_pressed():
+	pass # Replace with function body.
