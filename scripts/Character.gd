@@ -2,14 +2,14 @@ extends KinematicBody2D
 
 var linear_vel = Vector2()
 export(int) var speed = 500
+export(int) var jump_speed = 700
 var gravity = 800
 
-var counter = 0
+var facing_right = true
 
-# Called when the node enters the scene tree for the first time.
+onready var playback = $AnimationTree.get("parameters/playback")
+
 func _ready():
-	$AnimationPlayer.play("jump_end")
-	$AnimationPlayer.animation_set_next("jump_start", "jump")
 	$Attack.connect("area_entered", self, "on_enemy_entered")
 
 func on_enemy_entered(area: Area2D):
@@ -33,55 +33,43 @@ func _physics_process(delta):
 	
 	if on_floor:
 		if Input.is_action_just_pressed("jump"):
-			$AnimationPlayer.play("jump_start")
-			linear_vel.y = -700
+			linear_vel.y = -jump_speed
 		
 	
-	var target_vel = Vector2()
-	if Input.is_action_pressed("left"):
-		target_vel.x -= speed
-	if Input.is_action_pressed("right"):
-		target_vel.x += speed
+	var target_vel = (Input.get_action_strength("right") - Input.get_action_strength("left")) * speed
 	
-	
-	linear_vel.x = lerp(linear_vel.x, target_vel.x, 0.25)
+	linear_vel.x = lerp(linear_vel.x, target_vel, 0.25)
 	
 	if on_floor:
-		if Input.is_action_just_pressed("attack") or $AnimationPlayer.current_animation == "attack":
+		if Input.is_action_just_pressed("attack") or playback.get_current_node() == "attack":
 			linear_vel.x = 0
-	
-	
 	
 	# Animation
 	
-	$AnimationPlayer.playback_speed = 1
-	
-	if Input.is_action_just_pressed("attack"):
-		$AnimationPlayer.play("attack")
-	if $AnimationPlayer.current_animation != "attack":
-		if on_floor:
-			if abs(linear_vel.x) > 10.0:
-				$AnimationPlayer.play("run")
-				$AnimationPlayer.playback_speed = 2 * abs(linear_vel.x)/speed
-			else:
-				$AnimationPlayer.play("idle")
+	if on_floor:
+		if abs(linear_vel.x) > 10.0 or target_vel != 0:
+			playback.travel("run")
+			$AnimationTree.set("parameters/run/TimeScale/scale", 2 * abs(linear_vel.x)/speed)
 		else:
-			if linear_vel.y > 0:
-				$AnimationPlayer.play("jump_end")
-			else:
-				if not "jump" in $AnimationPlayer.current_animation:
-					$AnimationPlayer.play("jump_start")
-				
+			playback.travel("idle")
+	else:
+		if linear_vel.y > 0:
+			playback.travel("fall")
+		else:
+			playback.travel("jump")
+	
+	# This is placed last in order to overwrite the current state
+	if Input.is_action_just_pressed("attack"):
+		playback.travel("attack")
 	
 	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
-		$Sprite.scale.x = -3
-		$Attack.position.x = -42
+		if facing_right:
+			scale.x = -1
+		facing_right = false
 	if Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
-		$Sprite.scale.x = 3
-		$Attack.position.x = 42
-		
-
-
+		if not facing_right:
+			scale.x = -1
+		facing_right = true
 
 func _on_Continue_pressed():
 	pass # Replace with function body.
