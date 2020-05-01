@@ -5,6 +5,9 @@ export(int) var speed = 500
 export(int) var jump_speed = 700
 var gravity = 800
 
+export var tile_map_path : NodePath
+onready var tile_map = get_node(tile_map_path) as TileMap
+
 var facing_right = true
 
 onready var playback = $AnimationTree.get("parameters/playback")
@@ -23,6 +26,7 @@ func _physics_process(delta):
 	
 	# Physics
 	
+	
 	#Gravity
 	linear_vel.y += delta * gravity
 	
@@ -31,11 +35,16 @@ func _physics_process(delta):
 	
 	var on_floor = is_on_floor()
 	
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		var cell =tile_map.get_cellv(tile_map.world_to_map(collision.position))
+		if cell == 4:
+			print("death")
+	
 	if on_floor:
 		if Input.is_action_just_pressed("jump"):
 			linear_vel.y = -jump_speed
-		
-	
+			
 	var target_vel = (Input.get_action_strength("right") - Input.get_action_strength("left")) * speed
 	
 	linear_vel.x = lerp(linear_vel.x, target_vel, 0.25)

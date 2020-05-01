@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Adventurer/adventurer-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Character.gd" type="Script" id=2]
@@ -40,7 +40,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "fall"
 length = 0.4
 loop = true
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ 22, 23 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.8
 loop = true
 step = 0.2
@@ -75,8 +75,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "jump"
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -137,36 +136,62 @@ animation = "fall"
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=42]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "jump"
 
-[sub_resource type="AnimationNodeAnimation" id=43]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "jump_start"
 
-[sub_resource type="AnimationNodeAnimation" id=27]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "run"
 
-[sub_resource type="AnimationNodeTimeScale" id=28]
+[sub_resource type="AnimationNodeTimeScale" id=15]
 
-[sub_resource type="AnimationNodeBlendTree" id=29]
+[sub_resource type="AnimationNodeBlendTree" id=16]
 graph_offset = Vector2( 0, 117.5 )
-nodes/Animation/node = SubResource( 27 )
+nodes/Animation/node = SubResource( 14 )
 nodes/Animation/position = Vector2( 103, 115 )
-nodes/TimeScale/node = SubResource( 28 )
+nodes/TimeScale/node = SubResource( 15 )
 nodes/TimeScale/position = Vector2( 340, 80 )
 nodes/output/position = Vector2( 520, 100 )
 node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+priority = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
@@ -174,51 +199,29 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=44]
-priority = 0
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=45]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=46]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=47]
-priority = 0
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=49]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=50]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=51]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=52]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=53]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id=24]
+[sub_resource type="AnimationNodeStateMachine" id=35]
 states/attack/node = SubResource( 9 )
 states/attack/position = Vector2( 765, 312 )
 states/fall/node = SubResource( 10 )
 states/fall/position = Vector2( 1026, 236 )
 states/idle/node = SubResource( 11 )
 states/idle/position = Vector2( 479, 213 )
-states/jump/node = SubResource( 42 )
+states/jump/node = SubResource( 12 )
 states/jump/position = Vector2( 1026, 169 )
-states/jump_start/node = SubResource( 43 )
+states/jump_start/node = SubResource( 13 )
 states/jump_start/position = Vector2( 1026, 100 )
-states/run/node = SubResource( 29 )
+states/run/node = SubResource( 16 )
 states/run/position = Vector2( 582, 111 )
-transitions = [ "idle", "attack", SubResource( 16 ), "fall", "idle", SubResource( 17 ), "attack", "idle", SubResource( 21 ), "idle", "fall", SubResource( 26 ), "idle", "run", SubResource( 30 ), "run", "idle", SubResource( 31 ), "fall", "run", SubResource( 32 ), "run", "attack", SubResource( 33 ), "attack", "run", SubResource( 41 ), "run", "jump_start", SubResource( 44 ), "jump_start", "jump", SubResource( 45 ), "jump", "fall", SubResource( 46 ), "idle", "jump_start", SubResource( 47 ), "attack", "fall", SubResource( 49 ), "jump_start", "attack", SubResource( 50 ), "jump", "attack", SubResource( 51 ), "fall", "attack", SubResource( 52 ), "attack", "jump", SubResource( 53 ) ]
+transitions = [ "idle", "attack", SubResource( 17 ), "fall", "idle", SubResource( 18 ), "attack", "idle", SubResource( 19 ), "idle", "fall", SubResource( 20 ), "idle", "run", SubResource( 21 ), "run", "idle", SubResource( 22 ), "fall", "run", SubResource( 23 ), "run", "attack", SubResource( 24 ), "attack", "run", SubResource( 25 ), "run", "jump_start", SubResource( 26 ), "jump_start", "jump", SubResource( 27 ), "jump", "fall", SubResource( 28 ), "idle", "jump_start", SubResource( 29 ), "attack", "fall", SubResource( 30 ), "jump_start", "attack", SubResource( 31 ), "jump", "attack", SubResource( 32 ), "fall", "attack", SubResource( 33 ), "attack", "jump", SubResource( 34 ), "jump_start", "idle", SubResource( 37 ) ]
 start_node = "idle"
-graph_offset = Vector2( 160, 45 )
+graph_offset = Vector2( 148, 66.5592 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=25]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=36]
 
 [node name="Character" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -231,12 +234,13 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 vframes = 11
 hframes = 7
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 2 )
-anims/fall = SubResource( 5 )
-anims/idle = SubResource( 3 )
-anims/jump = SubResource( 4 )
+anims/fall = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/jump = SubResource( 5 )
 anims/jump_start = SubResource( 6 )
 anims/run = SubResource( 7 )
 
@@ -252,9 +256,9 @@ shape = SubResource( 8 )
 disabled = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 24 )
+tree_root = SubResource( 35 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
-parameters/playback = SubResource( 25 )
+parameters/playback = SubResource( 36 )
 parameters/run/TimeScale/scale = 2.0
