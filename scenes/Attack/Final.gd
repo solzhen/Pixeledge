@@ -8,8 +8,9 @@ var damage = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	knockback.x = 100
-	knockback.y = 0
+	self.get_parent().connect("body_entered", self, "on_enemy_entered")
+	knockback.x = 200
+	knockback.y = -400
 
 func on_enemy_entered(body: KinematicBody2D):
 	if body and body.is_in_group("Enemy"):

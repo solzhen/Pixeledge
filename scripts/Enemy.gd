@@ -34,5 +34,6 @@ func take_knockback(knockback: Vector2):
 	pass
 	
 func _physics_process(delta):
+	linear_vel.y += delta * gravity	
 	linear_vel = move_and_slide(linear_vel, Vector2(0, -1))
 	linear_vel.x = lerp(linear_vel.x, 0, 0.10)

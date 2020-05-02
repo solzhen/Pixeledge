@@ -108,6 +108,12 @@ func _physics_process(delta):
 	# This is placed last in order to overwrite the current state
 	if basic:
 		playback.travel("basic")
+	if special:
+		playback.travel("special")
+	if final:
+		playback.travel("final")
+	if dash:
+		playback.travel("dash")
 	
 	if left and not right:
 		if facing_right:
