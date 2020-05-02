@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/adventurer-run-03.png-0aa353ec96b308435fa7d709624dad6a.stex"
+path="res://.import/sam_spritesheet.png-657f43eb8ba651644c6254d724ca7001.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Adventurer/Individual Sprites/adventurer-run-03.png"
-dest_files=[ "res://.import/adventurer-run-03.png-0aa353ec96b308435fa7d709624dad6a.stex" ]
+source_file="res://textures/sam_spritesheet.png"
+dest_files=[ "res://.import/sam_spritesheet.png-657f43eb8ba651644c6254d724ca7001.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
