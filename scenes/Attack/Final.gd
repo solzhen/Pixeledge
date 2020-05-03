@@ -8,7 +8,6 @@ var damage = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.get_parent().connect("body_entered", self, "on_enemy_entered")
 	knockback.x = 100
 	knockback.y = -100
 

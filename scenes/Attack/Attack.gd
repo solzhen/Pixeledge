@@ -6,6 +6,7 @@ func _ready():
 	connect("body_shape_entered", self, "on_enemy_entered")
 
 func on_enemy_entered(_body_id: int, body: Node, _body_shape: int, local_shape: int):
+	print (local_shape)
 	get_child(local_shape).on_enemy_entered(body)
 
 func handle_streak():

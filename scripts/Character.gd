@@ -50,7 +50,6 @@ func _ready():
 func streak_handler():
 	streak += 1
 	combo_timer.start()
-	print (streak)
 	
 func on_timeout_complete():  #tiempo expirado
 	streak = 0

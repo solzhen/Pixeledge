@@ -14,7 +14,7 @@ func on_enemy_entered(body: KinematicBody2D):
 	if body and body.is_in_group("Enemy"):
 		body.take_damage(damage)
 		body.take_knockback(knockback)
-		get_parent().handle_streak()		
+		get_parent().handle_streak()
 	
 func e_h():
 	self.disabled = false
