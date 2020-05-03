@@ -103,10 +103,11 @@ func _physics_process(delta):
 	var final = Input.is_action_just_pressed("final")
 	var right = Input.is_action_pressed("right")
 	var left = Input.is_action_pressed("left")
-	var die = Input.is_action_just_pressed("die")
+	var die = Input.is_action_pressed("die")
 	
 	if die or death:
-		playback.travel("die")
+		death = true
+		playback.travel("death")
 		return
 	
 	# Physics

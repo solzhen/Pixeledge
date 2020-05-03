@@ -519,6 +519,7 @@ switch_mode = 2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=93]
+priority = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=94]
 switch_mode = 2
@@ -561,7 +562,7 @@ states/final/position = Vector2( 479.447, 351.954 )
 states/hurt/node = SubResource( 81 )
 states/hurt/position = Vector2( 293.479, 456.423 )
 states/idle/node = SubResource( 14 )
-states/idle/position = Vector2( 700.029, 141.356 )
+states/idle/position = Vector2( 775.323, 184.885 )
 states/jump/node = SubResource( 15 )
 states/jump/position = Vector2( 1026, 169 )
 states/jump_start/node = SubResource( 16 )
@@ -572,7 +573,7 @@ states/special/node = SubResource( 42 )
 states/special/position = Vector2( 586.941, 582.617 )
 transitions = [ "idle", "basic", SubResource( 20 ), "fall", "idle", SubResource( 21 ), "basic", "idle", SubResource( 22 ), "idle", "fall", SubResource( 23 ), "idle", "run", SubResource( 24 ), "fall", "run", SubResource( 25 ), "run", "basic", SubResource( 26 ), "basic", "run", SubResource( 27 ), "run", "jump_start", SubResource( 28 ), "jump_start", "jump", SubResource( 29 ), "jump", "fall", SubResource( 30 ), "idle", "jump_start", SubResource( 31 ), "basic", "fall", SubResource( 32 ), "jump_start", "basic", SubResource( 33 ), "jump", "basic", SubResource( 34 ), "fall", "basic", SubResource( 35 ), "basic", "jump", SubResource( 36 ), "run", "end_run", SubResource( 37 ), "end_run", "idle", SubResource( 38 ), "basic", "special", SubResource( 43 ), "special", "idle", SubResource( 44 ), "idle", "special", SubResource( 45 ), "special", "basic", SubResource( 46 ), "special", "run", SubResource( 47 ), "special", "jump", SubResource( 48 ), "special", "fall", SubResource( 49 ), "jump_start", "special", SubResource( 50 ), "run", "special", SubResource( 51 ), "jump", "special", SubResource( 52 ), "fall", "special", SubResource( 53 ), "run", "dash", SubResource( 56 ), "end_run", "dash", SubResource( 57 ), "idle", "dash", SubResource( 58 ), "special", "dash", SubResource( 61 ), "basic", "dash", SubResource( 62 ), "jump_start", "dash", SubResource( 63 ), "jump", "dash", SubResource( 64 ), "dash", "fall", SubResource( 66 ), "dash", "run", SubResource( 67 ), "special", "final", SubResource( 73 ), "basic", "final", SubResource( 74 ), "dash", "final", SubResource( 75 ), "run", "final", SubResource( 76 ), "end_run", "final", SubResource( 77 ), "idle", "final", SubResource( 78 ), "final", "idle", SubResource( 79 ), "special", "hurt", SubResource( 82 ), "final", "hurt", SubResource( 83 ), "dash", "hurt", SubResource( 84 ), "fall", "hurt", SubResource( 85 ), "basic", "hurt", SubResource( 86 ), "end_run", "hurt", SubResource( 87 ), "idle", "hurt", SubResource( 88 ), "run", "hurt", SubResource( 89 ), "hurt", "idle", SubResource( 90 ), "hurt", "fall", SubResource( 91 ), "idle", "die", SubResource( 93 ), "dash", "idle", SubResource( 94 ), "hurt", "die", SubResource( 95 ), "run", "die", SubResource( 96 ), "dash", "die", SubResource( 97 ), "end_run", "die", SubResource( 98 ), "fall", "die", SubResource( 99 ), "basic", "die", SubResource( 100 ), "special", "die", SubResource( 101 ), "die", "death", SubResource( 104 ), "death", "idle", SubResource( 105 ) ]
 start_node = "idle"
-graph_offset = Vector2( 528.095, 52.3342 )
+graph_offset = Vector2( 426.45, 358.861 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=40]
 
