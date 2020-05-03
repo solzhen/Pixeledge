@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/Pack/TileSet.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://fonts/Open_Sans/OpenSans-SemiBold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://fonts/Open_Sans/OpenSans-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scripts/InGameMenu.gd" type="Script" id=6]
+[ext_resource path="res://scenes/character1.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 76, 0, 76 )
@@ -114,14 +115,17 @@ size = 20
 font_data = ExtResource( 5 )
 
 [node name="Main" type="Node2D"]
+position = Vector2( 2.10527, -1.05264 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 5 )
 format = 1
-tile_data = PoolIntArray( 458753, 0, 0, 458754, 1, 0, 458755, 2, 0, 458756, 1, 0, 458757, 2, 0, 458758, 3, 0 )
+tile_data = PoolIntArray( 458753, 0, 0, 458754, 1, 0, 458755, 2, 0, 458756, 1, 0, 458757, 2, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 3, 0 )
 
-[node name="Character" parent="." instance=ExtResource( 1 )]
-position = Vector2( 175.144, 137.452 )
+[node name="Character" parent="." groups=[
+"Character1",
+] instance=ExtResource( 1 )]
+position = Vector2( 172.689, 137.452 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 316.645, 407.179 )
@@ -198,6 +202,9 @@ text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="character" parent="." instance=ExtResource( 7 )]
+position = Vector2( 557.393, 288.518 )
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Continue" to="InGameMenu" method="_on_Continue_pressed"]
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Retry" to="InGameMenu" method="_on_Retry_pressed"]
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Quit" to="InGameMenu" method="_on_Quit_pressed"]

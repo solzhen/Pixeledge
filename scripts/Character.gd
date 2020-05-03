@@ -86,7 +86,10 @@ func take_damage(value: int):
 		playback.travel("hurt")
 		if health <= 0:
 			death = true
-
+func take_knockback(knockback: Vector2):
+	linear_vel = knockback
+	pass
+	
 func self_destroy():
 	print("dying")
 	queue_free()
@@ -197,3 +200,4 @@ func _on_Retry_pressed():
 
 func _on_Quit_pressed():
 	pass # Replace with function body.
+

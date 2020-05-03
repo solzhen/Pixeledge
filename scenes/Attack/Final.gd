@@ -18,6 +18,12 @@ func on_enemy_entered(body: KinematicBody2D):
 		body.take_knockback(knockback*streak)	
 		if streak < 3:
 			get_parent().get_parent().take_damage((20*rand_range(1,14)))
+	if body and body.is_in_group("character2"):
+		var streak = get_parent().get_parent().streak
+		body.take_damage(min(damage*streak,10))
+		body.take_knockback(knockback*streak)	
+		if streak < 3:
+			get_parent().get_parent().take_damage((20*rand_range(1,14)))
 		
 		
 	
