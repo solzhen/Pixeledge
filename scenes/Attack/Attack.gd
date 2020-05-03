@@ -5,13 +5,15 @@ extends Area2D
 func _ready():
 	connect("body_shape_entered", self, "on_enemy_entered")
 
-func on_enemy_entered(body_id: int, body: Node, body_shape: int, local_shape: int):
+func on_enemy_entered(_body_id: int, body: Node, _body_shape: int, local_shape: int):
 	get_child(local_shape).on_enemy_entered(body)
-#	match local_shape:
-#		0:
-#			$BasicNeutral.on_enemy_entered(body)
-#		1:
-#			$SpecialNeutral.on_enemy_entered(body)
+
+func handle_streak():
+	get_parent().streak_handler()
+	
+func disable_childs():
+	for child in get_children():
+		child.disabled = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

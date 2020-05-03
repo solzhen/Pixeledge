@@ -1,10 +1,29 @@
 extends KinematicBody2D
 
+# stats
+const max_health = 1000
+var health = max_health
+var death = false
+
+# dash 
+var dash_timer = null
+const max_streak_delay = 1.1
+const dash_cooldown = 0.4
+
+# combo
+
+var combo_timer = null
+var streak = 0
+
+# CONST
 const BASIC_NEUTRAL = 0
 const SPECIAL_NEUTRAL = 0
 const FINAL = 0
 
-var max_jump_steps = 10
+
+# Megaman jump
+const max_stepts = 10
+var jump_steps = max_stepts
 
 var linear_vel = Vector2()
 export(int) var speed = 500
@@ -16,8 +35,25 @@ var facing_right = true
 onready var playback = $AnimationTree.get("parameters/playback")
 
 func _ready():
-# warning-ignore:return_value_discarded
-	pass
+	combo_timer = Timer.new()
+	combo_timer.set_one_shot(true)
+	combo_timer.set_wait_time(max_streak_delay)
+	combo_timer.connect("timeout",self,"on_timeout_complete")
+	add_child(combo_timer)
+	dash_timer = Timer.new()
+	dash_timer.set_one_shot(true)
+	dash_timer.set_wait_time(dash_cooldown)
+	add_child(dash_timer)
+	$HealthBar.max_value = max_health
+	$HealthBar.value = health
+
+func streak_handler():
+	streak += 1
+	combo_timer.start()
+	print (streak)
+	
+func on_timeout_complete():  #tiempo expirado
+	streak = 0
 
 func _enable_hurtbox(attack: int):
 	match attack:
@@ -43,6 +79,17 @@ func e_h(attack: int):
 	
 func d_h(attack: int):
 	_disable_hurtbox(attack)
+	
+func take_damage(value: int):
+	if !death:
+		health = health - value
+		$HealthBar.value = max(health,0)
+		playback.travel("hurt")
+		if health <= 0:
+			death = true
+
+func self_destroy():
+	queue_free()
 
 func _physics_process(delta):
 	
@@ -55,6 +102,11 @@ func _physics_process(delta):
 	var final = Input.is_action_just_pressed("final")
 	var right = Input.is_action_pressed("right")
 	var left = Input.is_action_pressed("left")
+	var die = Input.is_action_just_pressed("die")
+	
+	if die:
+		print("pls die")
+		playback.travel("die")
 	
 	# Physics
 		
@@ -68,15 +120,15 @@ func _physics_process(delta):
 	# Jump
 	
 	if on_floor:
-		max_jump_steps = 10
+		jump_steps = max_stepts
 		if j_jump:
 			linear_vel.y = -jump_speed
 	else:
 		if r_jump:
-			max_jump_steps = 0
-		if h_jump and max_jump_steps > 0:
-			max_jump_steps -= 1
-			linear_vel.y -= jump_speed*max_jump_steps*0.05
+			jump_steps = 0
+		if h_jump and jump_steps > 0:
+			jump_steps -= 1
+			linear_vel.y -= jump_speed*jump_steps*0.05
 		
 	# Movement
 	
@@ -113,15 +165,25 @@ func _physics_process(delta):
 	if final:
 		playback.travel("final")
 	if dash:
-		playback.travel("dash")
+		if dash_timer.get_time_left() == 0:
+			playback.travel("dash")
+			if facing_right:
+				linear_vel.x = speed*4
+			else:
+				linear_vel.x = -speed*4
+			if not on_floor:
+				linear_vel.y = -100
+			dash_timer.start()
 	
 	if left and not right:
 		if facing_right:
 			scale.x = -1
+			$HealthBar.rect_scale.x *= -1
 		facing_right = false
 	if right and not left:
 		if not facing_right:
 			scale.x = -1
+			$HealthBar.rect_scale.x *= -1
 		facing_right = true
 
 func _on_Continue_pressed():
