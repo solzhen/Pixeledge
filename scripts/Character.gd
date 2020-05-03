@@ -89,6 +89,7 @@ func take_damage(value: int):
 			death = true
 
 func self_destroy():
+	print("dying")
 	queue_free()
 
 func _physics_process(delta):
@@ -104,9 +105,9 @@ func _physics_process(delta):
 	var left = Input.is_action_pressed("left")
 	var die = Input.is_action_just_pressed("die")
 	
-	if die:
-		print("pls die")
+	if die or death:
 		playback.travel("die")
+		return
 	
 	# Physics
 		
