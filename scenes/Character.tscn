@@ -8,12 +8,15 @@
 [ext_resource path="res://scenes/Attack/Final.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
 extents = Vector2( 19.4545, 12.3652 )
 
 [sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
 extents = Vector2( 18.7785, 29.0515 )
 
 [sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
 extents = Vector2( 25.3931, 14.9916 )
 
 [sub_resource type="Animation" id=4]
@@ -668,7 +671,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 27, 0 )
 vframes = 8
 hframes = 6
-frame = 1
+frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 

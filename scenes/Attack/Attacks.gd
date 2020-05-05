@@ -25,7 +25,6 @@ func attack(body: Node, streak: int):
 	if self.owner == body:
 		if attack == FINAL and streak < min_streak:
 			self_harm()			
-		print("hit meself xd")
 	elif attack == FINAL:
 		if streak < min_streak:
 			self_harm()
