@@ -12,7 +12,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 61.8405, 58.6258 )
+extents = Vector2( 15.9065, 14.4005 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -334,7 +334,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.2, 0.25, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( -7.31503, -16.7793 ), Vector2( 22.9453, -7.05281 ), Vector2( 25.7281, -3.00006 ) ]
+"values": [ Vector2( -7.31503, -16.7793 ), Vector2( 13.7591, -4.89136 ), Vector2( 25.7281, -3.00006 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite/Attack/Hitbox:disabled")
@@ -358,7 +358,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.2, 0.25, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 15.9065, 14.4005 ), Vector2( 15.9065, 14.4005 ), Vector2( 25.3931, 14.9916 ) ]
+"values": [ Vector2( 15.9065, 14.4005 ), Vector2( 31.0365, 20.3446 ), Vector2( 25.3931, 14.9916 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Attacks:attack")
@@ -609,12 +609,12 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 13
 hframes = 5
-frame = 1
+frame = 41
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 64.0668, -1.86528 )
+position = Vector2( -7.31503, -16.7793 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -643,7 +643,7 @@ parameters/run/TimeScale/scale = 2.0
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 2 )
-attack = 2
+attack = 1
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 5 )
