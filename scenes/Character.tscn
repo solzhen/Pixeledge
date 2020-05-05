@@ -67,16 +67,16 @@ tracks/3/keys = {
 "values": [ Vector2( 14.4958, 14.4958 ), Vector2( 40.9663, 3.78149 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath(".:state")
+tracks/4/path = NodePath("Attacks:attack")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1, 2, 3 ]
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -220,6 +220,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -5.23466, 17.1284 ), Vector2( 64.0668, -1.86528 ), Vector2( 78.9537, -7.51206 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Attacks:attack")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -701,7 +713,7 @@ __meta__ = {
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 4 )
-attack = 1
+attack = 2
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 3 )
