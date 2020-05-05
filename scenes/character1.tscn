@@ -1,7 +1,10 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Textures/slug1.1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/character2.gd" type="Script" id=2]
+[ext_resource path="res://scenes/StreakBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/CancelBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/HealthBar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35.4287, 8.36672 )
@@ -74,10 +77,10 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00787055, 0.0450555, 0.0819281, 0.19845, 0.232343, 0.264578, 0.364532, 0.423119, 0.479296, 0.538382 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.19845, 0.232343, 0.264578, 0.364532, 0.423119, 0.479296, 0.538382 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 6, 7, 8, 9, 10, 11, 12, 13, 13, 14 ]
+"values": [ 7, 9, 10, 11, 12, 13, 13, 14 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -593,53 +596,9 @@ states/jump_start/position = Vector2( 439, 21 )
 transitions = [ "idle", "Walk", SubResource( 34 ), "Walk", "jump_start", SubResource( 35 ), "jump_start", "jump_air", SubResource( 36 ), "jump_air", "jump_down", SubResource( 37 ), "jump_down", "idle", SubResource( 38 ), "Walk", "idle", SubResource( 39 ), "idle", "atack1", SubResource( 40 ), "idle", "atack2", SubResource( 41 ), "atack1", "Walk", SubResource( 42 ), "atack2", "Walk", SubResource( 43 ), "Walk", "atack1", SubResource( 44 ), "Walk", "atack2", SubResource( 45 ), "hurt", "ded", SubResource( 46 ), "idle", "hurt", SubResource( 47 ), "jump_down", "hurt", SubResource( 48 ), "Walk", "hurt", SubResource( 49 ), "atack2", "hurt", SubResource( 50 ), "atack1", "hurt", SubResource( 51 ), "hurt", "idle", SubResource( 52 ), "idle", "jump_start", SubResource( 53 ), "atack1", "idle", SubResource( 54 ), "atack2", "idle", SubResource( 55 ), "atack1", "Finisher", SubResource( 56 ), "atack2", "Finisher", SubResource( 57 ), "Finisher", "idle", SubResource( 58 ), "idle", "Finisher", SubResource( 59 ), "Finisher", "hurt", SubResource( 60 ), "Walk", "Finisher", SubResource( 61 ), "autocombo_random1", "hurt", SubResource( 62 ), "autocombo_random1", "atack1", SubResource( 63 ), "autocombo_random1", "atack2", SubResource( 64 ), "autocombo_random1", "idle", SubResource( 65 ), "autocombo_random1", "Finisher", SubResource( 66 ), "idle", "autocombo_random1", SubResource( 67 ), "jump_start", "Air_atack1", SubResource( 68 ), "jump_air", "Air_atack1", SubResource( 69 ), "Air_atack1", "jump_air", SubResource( 70 ), "jump_start", "atack2_2", SubResource( 71 ), "jump_air", "atack2_2", SubResource( 72 ), "atack2_2", "jump_air", SubResource( 73 ) ]
 start_node = "idle"
 end_node = "ded"
-graph_offset = Vector2( -382.697, -46.5821 )
+graph_offset = Vector2( -287.697, 108.418 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=75]
-
-[sub_resource type="StyleBoxFlat" id=76]
-bg_color = Color( 0.152941, 0.670588, 0.392157, 1 )
-border_width_top = 1
-border_width_bottom = 1
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_right = 1.0
-
-[sub_resource type="StyleBoxFlat" id=77]
-bg_color = Color( 0.054902, 0.454902, 0.592157, 1 )
-border_width_top = 1
-border_width_bottom = 1
-border_color = Color( 0.0588235, 0.054902, 0.054902, 1 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-expand_margin_right = 1.0
-
-[sub_resource type="StyleBoxFlat" id=78]
-bg_color = Color( 0.0901961, 0.419608, 0.0862745, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.0745098, 0.0509804, 0.0509804, 1 )
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-corner_detail = 20
-shadow_size = 1
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=79]
-bg_color = Color( 0.572549, 0.0470588, 0.0470588, 1 )
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0, 0, 0, 1 )
 
 [node name="character" type="KinematicBody2D" groups=[
 "character2",
@@ -661,6 +620,7 @@ texture = ExtResource( 1 )
 normal_map = SubResource( 2 )
 vframes = 13
 hframes = 5
+frame = 36
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.5
@@ -720,51 +680,9 @@ active = true
 process_mode = 0
 parameters/playback = SubResource( 75 )
 
-[node name="StreakBar" type="ProgressBar" parent="."]
-self_modulate = Color( 1, 0.960784, 0.960784, 1 )
-margin_left = -72.0607
-margin_top = 26.1756
-margin_right = -12.0607
-margin_bottom = 40.1756
-custom_styles/fg = SubResource( 76 )
-custom_colors/font_color = Color( 0.956863, 0.933333, 0.239216, 1 )
-custom_colors/font_color_shadow = Color( 0.52549, 0.133333, 0.133333, 1 )
-max_value = 30.0
-rounded = true
-allow_greater = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="StreakBar" parent="." instance=ExtResource( 3 )]
 
-[node name="CancelBar" type="ProgressBar" parent="."]
-self_modulate = Color( 1, 0.960784, 0.960784, 1 )
-margin_left = -72.0607
-margin_top = 40.7457
-margin_right = -12.0607
-margin_bottom = 54.7457
-custom_styles/fg = SubResource( 77 )
-custom_colors/font_color = Color( 1, 0.360784, 0.0509804, 1 )
-custom_colors/font_color_shadow = Color( 0.615686, 0.411765, 0.411765, 1 )
-max_value = 39.0
-rounded = true
-allow_greater = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CancelBar" parent="." instance=ExtResource( 4 )]
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-margin_left = -29.4194
-margin_top = -49.2884
-margin_right = 44.5806
-margin_bottom = -33.2884
-custom_styles/fg = SubResource( 78 )
-custom_styles/bg = SubResource( 79 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-max_value = 999.0
-value = 999.0
-rounded = true
-allow_greater = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HealthBar" parent="." instance=ExtResource( 5 )]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

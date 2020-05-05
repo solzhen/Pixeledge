@@ -198,7 +198,7 @@ func _on_Quit_pressed():
 
 
 func _on_Attack_body_entered(body):
-	$Sprite/Attack/Hitbox.disabled = true
+	#$Sprite/Attack/Hitbox.disabled = true
 	$Attacks.attack(body, streak)
 	pass # Replace with function body.
 	

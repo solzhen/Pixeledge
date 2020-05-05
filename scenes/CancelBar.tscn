@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.054902, 0.454902, 0.592157, 1 )
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color( 0.0588235, 0.054902, 0.054902, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+expand_margin_right = 1.0
+
+[node name="CancelBar" type="ProgressBar"]
+self_modulate = Color( 1, 0.960784, 0.960784, 1 )
+margin_left = -72.0607
+margin_top = 40.7457
+margin_right = -12.0607
+margin_bottom = 54.7457
+custom_styles/fg = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.360784, 0.0509804, 1 )
+custom_colors/font_color_shadow = Color( 0.615686, 0.411765, 0.411765, 1 )
+max_value = 39.0
+rounded = true
+allow_greater = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

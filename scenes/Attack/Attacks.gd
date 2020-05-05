@@ -1,8 +1,6 @@
 extends Node
 export var attack = 0
 
-var min_streak = 3
-
 const FINAL = 2
 
 func _ready():
@@ -18,6 +16,7 @@ func self_harm():
 
 # TODO: HANDLE STREAK (FINAL = 2)
 func attack(body: Node, streak: int):
+	var min_streak = get_parent().min_streak
 	if not body.is_in_group("Character") and not body.is_in_group("Enemy"):
 		return
 	var damage = get_child(attack).damage
@@ -31,6 +30,7 @@ func attack(body: Node, streak: int):
 		else:
 			body.handle_attack(damage*streak, knockback*streak)
 	else:
+		get_parent().streak_handler()
 		body.handle_attack(damage, knockback)
 	
 	
