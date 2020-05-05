@@ -1,28 +1,37 @@
 extends KinematicBody2D
 
+export var player_index = 0
+
 # stats
-const max_health = 1000
+var max_health = 1000
 var health = max_health
 var death = false
 
 # dash 
 var dash_timer = null
-const max_streak_delay = 1.1
-const dash_cooldown = 0.4
+var max_streak_delay = 1.1
+var dash_cooldown = 0.4
 
 # combo
 
 var combo_timer = null
 var streak = 0
 
-# CONST
-const BASIC_NEUTRAL = 0
-const SPECIAL_NEUTRAL = 0
-const FINAL = 0
+# state
+const NEUTRAL = 0
+const STARTUP = 1
+const ATTACKING = 2
+const HITLAG = 3
+const PARRYING = 4
+const STUNNED = 5
+const AIRBOUND = 6
+const DASHING = 7
+const TRIPPING = 8
+export var state = NEUTRAL
 
 
 # Megaman jump
-const max_stepts = 10
+var max_stepts = 10
 var jump_steps = max_stepts
 
 var linear_vel = Vector2()
@@ -53,31 +62,6 @@ func streak_handler():
 	
 func on_timeout_complete():  #tiempo expirado
 	streak = 0
-
-func _enable_hurtbox(attack: int):
-	match attack:
-		BASIC_NEUTRAL:
-			$Attack/BasicNeutral.disabled = false
-		SPECIAL_NEUTRAL:
-			$Attack/SpecialNeutral.disabled = false
-		FINAL:
-			$Attack/Final.disabled = false
-			
-func _disable_hurtbox(attack: int):
-	match attack:
-		BASIC_NEUTRAL:
-			$Attack/BasicNeutral.disabled = true
-		SPECIAL_NEUTRAL:
-			$Attack/SpecialNeutral.disabled = true
-		FINAL:
-			$Attack/Final.disabled = true
-
-# Public shorter version
-func e_h(attack: int):
-	_enable_hurtbox(attack)
-	
-func d_h(attack: int):
-	_disable_hurtbox(attack)
 	
 func take_damage(value: int):
 	if !death:
@@ -86,6 +70,7 @@ func take_damage(value: int):
 		playback.travel("hurt")
 		if health <= 0:
 			death = true
+			
 func take_knockback(knockback: Vector2):
 	linear_vel = knockback
 	pass
@@ -96,16 +81,16 @@ func self_destroy():
 
 func _physics_process(delta):
 	
-	var j_jump = Input.is_action_just_pressed("jump")
-	var h_jump = Input.is_action_pressed("jump")
-	var r_jump = Input.is_action_just_released("jump")
-	var basic = Input.is_action_just_pressed("basic")
-	var special = Input.is_action_just_pressed("special")
-	var dash = Input.is_action_just_pressed("dash")
-	var final = Input.is_action_just_pressed("final")
-	var right = Input.is_action_pressed("right")
-	var left = Input.is_action_pressed("left")
-	var die = Input.is_action_pressed("die")
+	var j_jump = Input.is_action_just_pressed("jump" + "_" + str(player_index))
+	var h_jump = Input.is_action_pressed("jump" + "_" + str(player_index))
+	var r_jump = Input.is_action_just_released("jump" + "_" + str(player_index))
+	var basic = Input.is_action_just_pressed("basic" + "_" + str(player_index))
+	var special = Input.is_action_just_pressed("special" + "_" + str(player_index))
+	var dash = Input.is_action_just_pressed("dash" + "_" + str(player_index))
+	var final = Input.is_action_just_pressed("final" + "_" + str(player_index))
+	var right = Input.is_action_pressed("right" + "_" + str(player_index))
+	var left = Input.is_action_pressed("left" + "_" + str(player_index))
+	var die = Input.is_action_pressed("die" + "_" + str(player_index))
 	
 	if die or death:
 		death = true
@@ -136,7 +121,7 @@ func _physics_process(delta):
 		
 	# Movement
 	
-	var target_vel = (Input.get_action_strength("right") - Input.get_action_strength("left")) * speed
+	var target_vel = (Input.get_action_strength("right_" + str(player_index)) - Input.get_action_strength("left_" + str(player_index))) * speed
 	
 	linear_vel.x = lerp(linear_vel.x, target_vel, 0.25)
 	
@@ -148,11 +133,8 @@ func _physics_process(delta):
 	
 	if on_floor:
 		if abs(linear_vel.x) > 10.0 or target_vel != 0:	
-			if not right and not left:
-				playback.travel("end_run")
-			else:
-				playback.travel("run")
-				$AnimationTree.set("parameters/run/TimeScale/scale", 2 * abs(linear_vel.x)/speed)
+			playback.travel("run")
+			$AnimationTree.set("parameters/run/TimeScale/scale", 2 * abs(linear_vel.x)/speed)
 		else:
 			playback.travel("idle")
 	else:
@@ -201,3 +183,13 @@ func _on_Retry_pressed():
 func _on_Quit_pressed():
 	pass # Replace with function body.
 
+
+func _on_Attack_body_entered(body):
+	$Attacks.attack(body, streak)
+	pass # Replace with function body.
+	
+## TODO: HANDLE STATES, PARRYING, ETC
+func handle_attack(damage, knockback):
+	self.take_damage(damage)
+	self.take_knockback(knockback)
+	

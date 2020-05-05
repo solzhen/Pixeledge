@@ -559,7 +559,7 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=72]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=80]
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
 switch_mode = 2
 auto_advance = true
 
@@ -590,7 +590,7 @@ states/jump_down/node = SubResource( 32 )
 states/jump_down/position = Vector2( 631, 183 )
 states/jump_start/node = SubResource( 33 )
 states/jump_start/position = Vector2( 439, 21 )
-transitions = [ "idle", "Walk", SubResource( 34 ), "Walk", "jump_start", SubResource( 35 ), "jump_start", "jump_air", SubResource( 36 ), "jump_air", "jump_down", SubResource( 37 ), "jump_down", "idle", SubResource( 38 ), "Walk", "idle", SubResource( 39 ), "idle", "atack1", SubResource( 40 ), "idle", "atack2", SubResource( 41 ), "atack1", "Walk", SubResource( 42 ), "atack2", "Walk", SubResource( 43 ), "Walk", "atack1", SubResource( 44 ), "Walk", "atack2", SubResource( 45 ), "hurt", "ded", SubResource( 46 ), "idle", "hurt", SubResource( 47 ), "jump_down", "hurt", SubResource( 48 ), "Walk", "hurt", SubResource( 49 ), "atack2", "hurt", SubResource( 50 ), "atack1", "hurt", SubResource( 51 ), "hurt", "idle", SubResource( 52 ), "idle", "jump_start", SubResource( 53 ), "atack1", "idle", SubResource( 54 ), "atack2", "idle", SubResource( 55 ), "atack1", "Finisher", SubResource( 56 ), "atack2", "Finisher", SubResource( 57 ), "Finisher", "idle", SubResource( 58 ), "idle", "Finisher", SubResource( 59 ), "Finisher", "hurt", SubResource( 60 ), "Walk", "Finisher", SubResource( 61 ), "autocombo_random1", "hurt", SubResource( 62 ), "autocombo_random1", "atack1", SubResource( 63 ), "autocombo_random1", "atack2", SubResource( 64 ), "autocombo_random1", "idle", SubResource( 65 ), "autocombo_random1", "Finisher", SubResource( 66 ), "idle", "autocombo_random1", SubResource( 67 ), "jump_start", "Air_atack1", SubResource( 68 ), "jump_air", "Air_atack1", SubResource( 69 ), "Air_atack1", "jump_air", SubResource( 70 ), "jump_start", "atack2_2", SubResource( 71 ), "jump_air", "atack2_2", SubResource( 72 ), "atack2_2", "jump_air", SubResource( 80 ) ]
+transitions = [ "idle", "Walk", SubResource( 34 ), "Walk", "jump_start", SubResource( 35 ), "jump_start", "jump_air", SubResource( 36 ), "jump_air", "jump_down", SubResource( 37 ), "jump_down", "idle", SubResource( 38 ), "Walk", "idle", SubResource( 39 ), "idle", "atack1", SubResource( 40 ), "idle", "atack2", SubResource( 41 ), "atack1", "Walk", SubResource( 42 ), "atack2", "Walk", SubResource( 43 ), "Walk", "atack1", SubResource( 44 ), "Walk", "atack2", SubResource( 45 ), "hurt", "ded", SubResource( 46 ), "idle", "hurt", SubResource( 47 ), "jump_down", "hurt", SubResource( 48 ), "Walk", "hurt", SubResource( 49 ), "atack2", "hurt", SubResource( 50 ), "atack1", "hurt", SubResource( 51 ), "hurt", "idle", SubResource( 52 ), "idle", "jump_start", SubResource( 53 ), "atack1", "idle", SubResource( 54 ), "atack2", "idle", SubResource( 55 ), "atack1", "Finisher", SubResource( 56 ), "atack2", "Finisher", SubResource( 57 ), "Finisher", "idle", SubResource( 58 ), "idle", "Finisher", SubResource( 59 ), "Finisher", "hurt", SubResource( 60 ), "Walk", "Finisher", SubResource( 61 ), "autocombo_random1", "hurt", SubResource( 62 ), "autocombo_random1", "atack1", SubResource( 63 ), "autocombo_random1", "atack2", SubResource( 64 ), "autocombo_random1", "idle", SubResource( 65 ), "autocombo_random1", "Finisher", SubResource( 66 ), "idle", "autocombo_random1", SubResource( 67 ), "jump_start", "Air_atack1", SubResource( 68 ), "jump_air", "Air_atack1", SubResource( 69 ), "Air_atack1", "jump_air", SubResource( 70 ), "jump_start", "atack2_2", SubResource( 71 ), "jump_air", "atack2_2", SubResource( 72 ), "atack2_2", "jump_air", SubResource( 73 ) ]
 start_node = "idle"
 end_node = "ded"
 graph_offset = Vector2( -382.697, -46.5821 )
@@ -661,7 +661,6 @@ texture = ExtResource( 1 )
 normal_map = SubResource( 2 )
 vframes = 13
 hframes = 5
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.5

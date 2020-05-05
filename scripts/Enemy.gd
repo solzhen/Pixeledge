@@ -37,3 +37,7 @@ func _physics_process(delta):
 	linear_vel.y += delta * gravity	
 	linear_vel = move_and_slide(linear_vel, Vector2(0, -1))
 	linear_vel.x = lerp(linear_vel.x, 0, 0.10)
+	
+func handle_attack(damage, knockback):
+	self.take_damage(damage)
+	self.take_knockback(knockback)
