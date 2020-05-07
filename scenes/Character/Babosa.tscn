@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://scenes/Character/Babosa/SpecialNeutral.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Attack/Attacks.gd" type="Script" id=2]
@@ -80,7 +80,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "combo1"
-length = 0.742
+length = 1.555
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -88,10 +88,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.406121, 0.497683, 0.576125, 0.597683, 0.604459, 0.635461, 0.675887 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.406121, 0.497683, 0.576125, 0.597683, 0.604459, 0.635461, 0.675887, 0.703628, 0.730388, 0.767942, 0.816739, 0.925578, 1, 1.046, 1.06228, 1.07131, 1.09047, 1.12624, 1.16701, 1.2179 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 36, 37, 39, 38, 37, 38, 40, 20, 21, 25, 26, 27 ]
+"values": [ 36, 37, 39, 38, 37, 38, 40, 20, 21, 25, 26, 27, 29, 30, 31, 35, 55, 56, 57, 58, 59, 60, 61, 62, 64 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite/Attack/Hitbox:disabled")
@@ -100,10 +100,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.410843, 0.571403 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.410843, 0.571403, 0.63909, 0.709925 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true, false, true ]
+"values": [ true, false, true, false, true, false, true ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite/Attack/Hitbox:shape:extents")
@@ -112,10 +112,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.668998, 0.711499 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 10.5751, 17.4848 ), Vector2( 12.5258, 16.0217 ), Vector2( 14.8283, 10.1842 ) ]
+"values": [ Vector2( 10.5751, 17.4848 ), Vector2( 12.5258, 16.0217 ), Vector2( 14.8283, 10.1842 ), Vector2( 34, 2 ), Vector2( 10.5751, 17.4848 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Sprite/Attack/Hitbox:position")
@@ -124,10 +124,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3, 0.546217, 0.63909 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.5, 0.546217, 0.689461, 0.709925 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 14.9835, 14.4958 ), Vector2( 23.7617, 6.20529 ), Vector2( 18.0455, 9.14594 ), Vector2( 32.0265, -0.533179 ), Vector2( -1.67123, -2.32561 ) ]
+"values": [ Vector2( 14.9835, 14.4958 ), Vector2( 23.7617, 6.20529 ), Vector2( 18.0455, 9.14594 ), Vector2( 32.3849, -0.891665 ), Vector2( 32.0265, -0.533179 ), Vector2( 32.0265, 8.78745 ), Vector2( 14.9835, 14.4958 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Attacks:attack")
@@ -140,6 +140,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Attack/Hitbox:shape")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -441,6 +453,9 @@ tracks/4/keys = {
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "attack"
 
+[sub_resource type="AnimationNodeAnimation" id=93]
+animation = "combo1"
+
 [sub_resource type="AnimationNodeAnimation" id=17]
 animation = "dash"
 
@@ -628,6 +643,8 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id=89]
 states/basic/node = SubResource( 16 )
 states/basic/position = Vector2( 800.295, 630.287 )
+states/combo1/node = SubResource( 93 )
+states/combo1/position = Vector2( 931.902, 646.614 )
 states/dash/node = SubResource( 17 )
 states/dash/position = Vector2( 177.973, -43.7129 )
 states/death/node = SubResource( 18 )
@@ -652,7 +669,7 @@ states/special/node = SubResource( 29 )
 states/special/position = Vector2( 451.647, 614.382 )
 transitions = [ "idle", "basic", SubResource( 30 ), "fall", "idle", SubResource( 31 ), "basic", "idle", SubResource( 32 ), "idle", "fall", SubResource( 33 ), "jump_start", "jump", SubResource( 34 ), "jump", "fall", SubResource( 35 ), "idle", "jump_start", SubResource( 36 ), "basic", "fall", SubResource( 37 ), "jump_start", "basic", SubResource( 38 ), "jump", "basic", SubResource( 39 ), "fall", "basic", SubResource( 40 ), "basic", "jump", SubResource( 41 ), "basic", "special", SubResource( 42 ), "special", "idle", SubResource( 43 ), "idle", "special", SubResource( 44 ), "special", "basic", SubResource( 45 ), "special", "jump", SubResource( 46 ), "special", "fall", SubResource( 47 ), "jump_start", "special", SubResource( 48 ), "jump", "special", SubResource( 49 ), "fall", "special", SubResource( 50 ), "special", "final", SubResource( 51 ), "basic", "final", SubResource( 52 ), "idle", "final", SubResource( 53 ), "final", "idle", SubResource( 54 ), "special", "hurt", SubResource( 55 ), "final", "hurt", SubResource( 56 ), "fall", "hurt", SubResource( 57 ), "basic", "hurt", SubResource( 58 ), "idle", "hurt", SubResource( 59 ), "hurt", "idle", SubResource( 60 ), "hurt", "fall", SubResource( 61 ), "idle", "die", SubResource( 62 ), "hurt", "die", SubResource( 63 ), "fall", "die", SubResource( 64 ), "basic", "die", SubResource( 65 ), "special", "die", SubResource( 66 ), "die", "death", SubResource( 67 ), "death", "idle", SubResource( 68 ), "idle", "run", SubResource( 69 ), "fall", "run", SubResource( 70 ), "run", "basic", SubResource( 71 ), "basic", "run", SubResource( 72 ), "run", "jump_start", SubResource( 73 ), "special", "run", SubResource( 74 ), "run", "special", SubResource( 75 ), "run", "final", SubResource( 76 ), "run", "hurt", SubResource( 77 ), "run", "die", SubResource( 78 ), "run", "dash", SubResource( 79 ), "idle", "dash", SubResource( 80 ), "jump_start", "dash", SubResource( 81 ), "jump", "dash", SubResource( 82 ), "fall", "dash", SubResource( 83 ), "dash", "run", SubResource( 84 ), "dash", "idle", SubResource( 85 ), "dash", "fall", SubResource( 86 ), "run", "idle", SubResource( 87 ), "run", "fall", SubResource( 88 ) ]
 start_node = "idle"
-graph_offset = Vector2( -105.791, -80.186 )
+graph_offset = Vector2( 127.902, 174.83 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=90]
 
@@ -674,14 +691,13 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 13
 hframes = 5
-frame = 5
+frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 32.0265, -0.533179 )
+position = Vector2( 18.0455, 9.14594 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 2 )
