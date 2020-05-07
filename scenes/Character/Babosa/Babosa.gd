@@ -40,7 +40,7 @@ export(int) var speed = 500
 export(int) var jump_speed = 200
 var gravity = 800
 
-var facing_right = true
+export var facing_right = true
 
 onready var playback = $AnimationTree.get("parameters/playback")
 
@@ -158,7 +158,12 @@ func _physics_process(delta):
 	
 	# This is placed last in order to overwrite the current state
 	if basic:
-		playback.travel("basic")
+		if streak>5:
+			playback.travel("autocombo_1")
+		else:
+			playback.travel("basic")
+		
+			
 	if special:
 		playback.travel("special")
 	if final:
