@@ -13,7 +13,7 @@ var dash_cooldown = 0.4
 
 # combo
 
-var combo_timer = null
+export var combo_timer = 1.2
 var streak = 0
 var max_streak_delay = 1.1
 var min_streak = 3
@@ -68,9 +68,11 @@ func streak_handler():
 	
 func on_timeout_complete():  #tiempo expirado
 	streak = 0
-	
+	$StreakBar.value=streak
 func take_damage(value: int):
 	if !death:
+		streak=0
+		$StreakBar.value=streak
 		health = health - value
 		$HealthBar.value = max(health,0)
 		playback.travel("hurt")

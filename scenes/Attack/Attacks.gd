@@ -38,6 +38,7 @@ func attack(body: Node, streak: int):
 		else:
 			body.handle_attack(damage*streak, knockback*streak)
 	else:
+		get_parent().combo_timer.start()
 		get_parent().streak_handler()
 		body.handle_attack(damage, knockback)
 	
