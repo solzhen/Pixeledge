@@ -119,7 +119,11 @@ func _physics_process(delta):
 	# Physics
 		
 	#Gravity
-	linear_vel.y += delta * gravity		
+	if  playback.get_current_node() != "parry":
+		linear_vel.y += delta * gravity		
+	else: 
+		linear_vel.y=0
+		linear_vel.x=0
 	
 	linear_vel = move_and_slide(linear_vel, Vector2(0, -1))
 	
@@ -145,9 +149,12 @@ func _physics_process(delta):
 	linear_vel.x = lerp(linear_vel.x, target_vel, 0.25)
 	
 	if on_floor:
-		if basic or playback.get_current_node() == "basic" or playback.get_current_node() == "combo1":
+		if basic or playback.get_current_node() == "basic": 
 			linear_vel.x = 0
-	
+		if basic or playback.get_current_node() == "combo1":
+			linear_vel.x = 0
+		if parry or playback.get_current_node() == "parry":
+			linear_vel.x = 0
 	# Animation
 	
 	if on_floor:
@@ -164,9 +171,13 @@ func _physics_process(delta):
 	
 	# This is placed last in order to overwrite the current state
 	if parry:
-		if $CancelBar.value>=cancel_min:
+		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
+			playback.travel("parry")
 			print($CancelBar.value)
 			$CancelBar.value -=4
+		else: 
+			$CancelBar.value -=4
+			pass
 	if basic:
 		if  playback.get_current_node() != "combo1":
 			playback.travel("basic")

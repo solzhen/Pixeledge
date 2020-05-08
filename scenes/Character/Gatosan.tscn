@@ -12,7 +12,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 46.9824, 19.6725 )
+extents = Vector2( 19.8816, 8.95827 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -614,12 +614,12 @@ texture = ExtResource( 9 )
 offset = Vector2( 27, 0 )
 vframes = 8
 hframes = 6
-frame = 5
+frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 14.4958, 14.4958 )
+position = Vector2( 40.9663, 3.78149 )
 shape = SubResource( 1 )
 disabled = true
 
