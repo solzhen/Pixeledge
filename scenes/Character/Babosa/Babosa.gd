@@ -15,8 +15,9 @@ var dash_cooldown = 0.4
 
 var combo_timer = null
 var streak = 0
-var max_streak_delay = 1.1
+var max_streak_delay = 1.7
 var min_streak = 3
+var max_streak = 50
 
 # cancel
 var cancel_min=10
@@ -60,7 +61,7 @@ func _ready():
 	add_child(dash_timer)
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
-	$StreakBar.max_value = min_streak
+	$StreakBar.max_value = max_streak
 	$StreakBar.value = 0
 	$CancelBar.max_value = cancel_max
 	$CancelBar.value = cancel_min
@@ -72,9 +73,11 @@ func streak_handler():
 	
 func on_timeout_complete():  #tiempo expirado
 	streak = 0
-	
+	$StreakBar.value=streak
 func take_damage(value: int):
 	if !death:
+		streak=0
+		$StreakBar.value=streak
 		health = health - value
 		$HealthBar.value = max(health,0)
 		playback.travel("hurt")
@@ -142,7 +145,7 @@ func _physics_process(delta):
 	linear_vel.x = lerp(linear_vel.x, target_vel, 0.25)
 	
 	if on_floor:
-		if basic or playback.get_current_node() == "basic":
+		if basic or playback.get_current_node() == "basic" or playback.get_current_node() == "combo1":
 			linear_vel.x = 0
 	
 	# Animation
@@ -165,11 +168,11 @@ func _physics_process(delta):
 			print($CancelBar.value)
 			$CancelBar.value -=4
 	if basic:
-		if streak>5:
-			playback.travel("combo1")
-		else:
+		if  playback.get_current_node() != "combo1":
 			playback.travel("basic")
-			
+		if streak>3 and   playback.get_current_node() != "combo1":
+			playback.travel("combo1")
+		pass	
 	if special:
 		playback.travel("special")
 	if final:

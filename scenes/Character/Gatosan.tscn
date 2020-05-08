@@ -614,7 +614,7 @@ texture = ExtResource( 9 )
 offset = Vector2( 27, 0 )
 vframes = 8
 hframes = 6
-frame = 2
+frame = 5
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -670,6 +670,7 @@ margin_bottom = -47.6442
 rect_pivot_offset = Vector2( 35, 0 )
 
 [node name="StreakBar" parent="." instance=ExtResource( 6 )]
+max_value = 50.0
 percent_visible = false
 
 [node name="Feet" type="CollisionShape2D" parent="."]

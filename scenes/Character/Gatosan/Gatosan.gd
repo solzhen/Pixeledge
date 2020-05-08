@@ -8,16 +8,16 @@ var health = max_health
 var death = false
 
 # dash 
-export var dash_timer = 1
+var dash_timer = null
 var dash_cooldown = 0.4
 
 # combo
 
-export var combo_timer = 1.7
+var combo_timer = null
 var streak = 0
-var max_streak_delay = 1.1
+var max_streak_delay = 1.4
 var min_streak = 3
-var max_streak = 20
+var max_streak = 50
 
 # cancel
 var cancel_min=10
@@ -64,7 +64,7 @@ func _ready():
 	$StreakBar.max_value = max_streak
 	$StreakBar.value = 0
 	$CancelBar.max_value = cancel_max
-	$CancelBar.value = 0
+	$CancelBar.value = cancel_min
 
 func streak_handler():
 	streak += 1
