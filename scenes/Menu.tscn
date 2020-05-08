@@ -42,10 +42,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
-margin_right = 400.0
+margin_right = 425.0
 margin_bottom = 69.0
 custom_fonts/font = SubResource( 1 )
-text = "Plumber"
+text = "Cosmic crusaders"
 align = 1
 valign = 1
 __meta__ = {
@@ -54,7 +54,7 @@ __meta__ = {
 
 [node name="New" type="Button" parent="CanvasLayer/VBoxContainer"]
 margin_top = 73.0
-margin_right = 400.0
+margin_right = 425.0
 margin_bottom = 107.0
 custom_fonts/font = SubResource( 2 )
 text = "New Game"
@@ -64,7 +64,7 @@ __meta__ = {
 
 [node name="Load" type="Button" parent="CanvasLayer/VBoxContainer"]
 margin_top = 111.0
-margin_right = 400.0
+margin_right = 425.0
 margin_bottom = 145.0
 custom_fonts/font = SubResource( 2 )
 text = "Load Game"
@@ -74,7 +74,7 @@ __meta__ = {
 
 [node name="Settings" type="Button" parent="CanvasLayer/VBoxContainer"]
 margin_top = 149.0
-margin_right = 400.0
+margin_right = 425.0
 margin_bottom = 183.0
 custom_fonts/font = SubResource( 2 )
 text = "Settings"
@@ -84,7 +84,7 @@ __meta__ = {
 
 [node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer"]
 margin_top = 187.0
-margin_right = 400.0
+margin_right = 425.0
 margin_bottom = 221.0
 custom_fonts/font = SubResource( 3 )
 text = "Quit"

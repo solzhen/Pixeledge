@@ -13,10 +13,14 @@ var dash_cooldown = 0.4
 
 # combo
 
-export var combo_timer = 1.4
+var combo_timer = null
 var streak = 0
 var max_streak_delay = 1.1
 var min_streak = 3
+
+# cancel
+var cancel_min=10
+var cancel_max=60
 
 # state
 const NEUTRAL = 0
@@ -58,8 +62,8 @@ func _ready():
 	$HealthBar.value = health
 	$StreakBar.max_value = min_streak
 	$StreakBar.value = 0
-	$CancelBar.max_value = 60
-	$CancelBar.value = 0
+	$CancelBar.max_value = cancel_max
+	$CancelBar.value = cancel_min
 
 func streak_handler():
 	streak += 1
@@ -68,12 +72,9 @@ func streak_handler():
 	
 func on_timeout_complete():  #tiempo expirado
 	streak = 0
-	$StreakBar.value=streak
 	
 func take_damage(value: int):
 	if !death:
-		streak=0
-		$StreakBar.value=streak
 		health = health - value
 		$HealthBar.value = max(health,0)
 		playback.travel("hurt")
@@ -105,8 +106,7 @@ func _physics_process(delta):
 	
 	## TODO: parry animation, set parry state, change parry handle on attacker
 	$CancelBar.value += 30 * delta
-	if parry:
-		$CancelBar.value = 0
+
 	
 	if die or death:
 		death = true
@@ -160,12 +160,15 @@ func _physics_process(delta):
 			playback.travel("jump")
 	
 	# This is placed last in order to overwrite the current state
+	if parry:
+		if $CancelBar.value>=cancel_min:
+			print($CancelBar.value)
+			$CancelBar.value -=4
 	if basic:
 		if streak>5:
-			playback.travel("autocombo_1")
+			playback.travel("combo1")
 		else:
 			playback.travel("basic")
-		
 			
 	if special:
 		playback.travel("special")
@@ -212,7 +215,6 @@ func _on_Attack_body_entered(body):
 	
 ## TODO: HANDLE STATES, PARRYING, ETC
 func handle_attack(damage, knockback):
-
 	self.take_damage(damage)
 	self.take_knockback(knockback)
 	

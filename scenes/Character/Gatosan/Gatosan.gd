@@ -8,15 +8,20 @@ var health = max_health
 var death = false
 
 # dash 
-var dash_timer = null
+export var dash_timer = 1
 var dash_cooldown = 0.4
 
 # combo
 
-export var combo_timer = 1.2
+export var combo_timer = 1.7
 var streak = 0
 var max_streak_delay = 1.1
 var min_streak = 3
+var max_streak = 20
+
+# cancel
+var cancel_min=10
+var cancel_max=60
 
 # state
 const NEUTRAL = 0
@@ -56,9 +61,9 @@ func _ready():
 	add_child(dash_timer)
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
-	$StreakBar.max_value = min_streak
+	$StreakBar.max_value = max_streak
 	$StreakBar.value = 0
-	$CancelBar.max_value = 60
+	$CancelBar.max_value = cancel_max
 	$CancelBar.value = 0
 
 func streak_handler():
@@ -103,9 +108,9 @@ func _physics_process(delta):
 	var parry =  Input.is_action_pressed("parry" + "_" + str(player_index))
 	
 	## TODO: parry animation, set parry state, change parry handle on attacker
+	
 	$CancelBar.value += 30 * delta
-	if parry:
-		$CancelBar.value = 0
+
 	
 	if die or death:
 		death = true
@@ -159,6 +164,11 @@ func _physics_process(delta):
 			playback.travel("jump")
 	
 	# This is placed last in order to overwrite the current state
+	if parry:
+		if $CancelBar.value>=cancel_min:
+			print($CancelBar.value)
+			$CancelBar.value -=4
+			
 	if basic:
 		playback.travel("basic")
 	if special:
