@@ -120,8 +120,11 @@ func _physics_process(delta):
 	# Physics
 		
 	#Gravity
-	linear_vel.y += delta * gravity		
-	
+	if  playback.get_current_node() != "parry":
+		linear_vel.y += delta * gravity		
+	else: 
+		linear_vel.y=0
+		
 	linear_vel = move_and_slide(linear_vel, Vector2(0, -1))
 	
 	var on_floor = is_on_floor()
@@ -165,16 +168,25 @@ func _physics_process(delta):
 	
 	# This is placed last in order to overwrite the current state
 	if parry:
-		if $CancelBar.value>=cancel_min:
+		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
+			playback.travel("parry")
 			print($CancelBar.value)
 			$CancelBar.value -=4
-			
+		else: 
+			$CancelBar.value -=4
+			pass
 	if basic:
 		playback.travel("basic")
 	if special:
 		playback.travel("special")
 	if final:
 		playback.travel("final")
+	if parry:
+		if facing_right:
+			linear_vel.x=speed*4
+		else:
+			linear_vel.x=-speed*4
+
 	if dash:
 		if dash_timer.get_time_left() == 0:
 			playback.travel("dash")

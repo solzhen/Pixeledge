@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Fart-Common-Everyday-Fart_Mike-Koenig.wav-a00f8955a9d8392bbfb77a25310a1215.sample"
+
+[deps]
+
+source_file="res://sounds/Fart-Common-Everyday-Fart_Mike-Koenig.wav"
+dest_files=[ "res://.import/Fart-Common-Everyday-Fart_Mike-Koenig.wav-a00f8955a9d8392bbfb77a25310a1215.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
