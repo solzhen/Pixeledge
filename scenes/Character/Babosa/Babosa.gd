@@ -19,7 +19,9 @@ var max_streak_delay = 1.7
 var min_streak = 3
 var max_streak = 50
 
-# cancel
+# parry
+var p_timer=null
+var parry_step=0.5
 var cancel_min=10
 var cancel_max=60
 
@@ -59,6 +61,13 @@ func _ready():
 	dash_timer.set_one_shot(true)
 	dash_timer.set_wait_time(dash_cooldown)
 	add_child(dash_timer)
+	#### Timer del parry
+	p_timer=Timer.new()
+	p_timer.set_one_shot(true)
+	p_timer.set_wait_time(parry_step)
+	p_timer.connect("timeout",self,"on_parry_charged")
+	add_child(p_timer)
+	p_timer.start() 
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
 	$StreakBar.max_value = max_streak
@@ -74,6 +83,14 @@ func streak_handler():
 func on_timeout_complete():  #tiempo expirado
 	streak = 0
 	$StreakBar.value=streak
+	
+func 	on_parry_charged(): #contador_parry
+	if $CancelBar.value<(cancel_max+1):
+		$CancelBar.value+=1
+	else:
+		$CancelBar.value=cancel_max
+	p_timer.start()
+	
 func take_damage(value: int):
 	if !death:
 		streak=0
@@ -108,8 +125,7 @@ func _physics_process(delta):
 	var parry =  Input.is_action_pressed("parry" + "_" + str(player_index))
 	
 	## TODO: parry animation, set parry state, change parry handle on attacker
-	$CancelBar.value += 30 * delta
-
+	
 	
 	if die or death:
 		death = true
@@ -124,7 +140,16 @@ func _physics_process(delta):
 	else: 
 		linear_vel.y=0
 		linear_vel.x=0
-	
+	if  playback.get_current_node() == "final":
+		if facing_right:
+			linear_vel.x=speed*4
+			if is_on_floor():
+				linear_vel.y=0
+		else:
+			linear_vel.x=-speed*3
+			if is_on_floor():
+				linear_vel.y=0
+				
 	linear_vel = move_and_slide(linear_vel, Vector2(0, -1))
 	
 	var on_floor = is_on_floor()
@@ -167,6 +192,7 @@ func _physics_process(delta):
 		if linear_vel.y > 0:
 			playback.travel("fall")
 		else:
+			
 			playback.travel("jump")
 	
 	# This is placed last in order to overwrite the current state
@@ -181,8 +207,8 @@ func _physics_process(delta):
 	if basic:
 		if  playback.get_current_node() != "combo1":
 			playback.travel("basic")
-		if streak>3 and   playback.get_current_node() != "combo1":
-			playback.travel("combo1")
+			if streak>3 and   playback.get_current_node() != "combo1":
+				playback.travel("combo1")
 		pass	
 	if special:
 		playback.travel("special")

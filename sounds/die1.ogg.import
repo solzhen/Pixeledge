@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/die1.ogg-f213a7c9a5113655ffe7e26ba2f1a8c8.oggstr"
+
+[deps]
+
+source_file="res://sounds/die1.ogg"
+dest_files=[ "res://.import/die1.ogg-f213a7c9a5113655ffe7e26ba2f1a8c8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

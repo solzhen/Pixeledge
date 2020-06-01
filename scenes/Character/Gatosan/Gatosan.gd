@@ -19,7 +19,9 @@ var max_streak_delay = 1.4
 var min_streak = 3
 var max_streak = 50
 
-# cancel
+# parry
+var p_timer=null
+var parry_step=0.5
 var cancel_min=10
 var cancel_max=60
 
@@ -59,6 +61,13 @@ func _ready():
 	dash_timer.set_one_shot(true)
 	dash_timer.set_wait_time(dash_cooldown)
 	add_child(dash_timer)
+	#### Timer del parry
+	p_timer=Timer.new()
+	p_timer.set_one_shot(true)
+	p_timer.set_wait_time(parry_step)
+	p_timer.connect("timeout",self,"on_parry_charged")
+	add_child(p_timer)
+	p_timer.start() 
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
 	$StreakBar.max_value = max_streak
@@ -70,7 +79,12 @@ func streak_handler():
 	streak += 1
 	combo_timer.start()
 	$StreakBar.value = streak
-	
+func 	on_parry_charged():
+	if $CancelBar.value<(cancel_max+1):
+		$CancelBar.value+=1
+	else:
+		$CancelBar.value=cancel_max	
+	p_timer.start()
 func on_timeout_complete():  #tiempo expirado
 	streak = 0
 	$StreakBar.value=streak
@@ -108,10 +122,6 @@ func _physics_process(delta):
 	var parry =  Input.is_action_pressed("parry" + "_" + str(player_index))
 	
 	## TODO: parry animation, set parry state, change parry handle on attacker
-	
-	$CancelBar.value += 30 * delta
-
-	
 	if die or death:
 		death = true
 		playback.travel("death")
@@ -124,7 +134,6 @@ func _physics_process(delta):
 		linear_vel.y += delta * gravity		
 	else: 
 		linear_vel.y=0
-		
 	linear_vel = move_and_slide(linear_vel, Vector2(0, -1))
 	
 	var on_floor = is_on_floor()
@@ -167,14 +176,10 @@ func _physics_process(delta):
 			playback.travel("jump")
 	
 	# This is placed last in order to overwrite the current state
-	if parry:
-		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
+	if parry  and playback.get_current_node() != "parry":
+		if $CancelBar.value>10:
 			playback.travel("parry")
 			print($CancelBar.value)
-			$CancelBar.value -=4
-		else: 
-			$CancelBar.value -=4
-			pass
 	if basic:
 		playback.travel("basic")
 	if special:
@@ -182,10 +187,13 @@ func _physics_process(delta):
 	if final:
 		playback.travel("final")
 	if parry:
-		if facing_right:
-			linear_vel.x=speed*4
-		else:
-			linear_vel.x=-speed*4
+		$CancelBar.value -=cancel_min
+		if playback.get_current_node() != "parry":
+			if facing_right:
+				linear_vel.x=speed*3
+			else:
+				linear_vel.x=-speed*3
+		
 
 	if dash:
 		if dash_timer.get_time_left() == 0:
