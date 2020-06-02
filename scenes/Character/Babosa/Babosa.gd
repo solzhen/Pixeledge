@@ -183,17 +183,23 @@ func _physics_process(delta):
 	# Animation
 	
 	if on_floor:
+
 		if abs(linear_vel.x) > 10.0 or target_vel != 0:	
 			playback.travel("run")
 			$AnimationTree.set("parameters/run/TimeScale/scale", 2 * abs(linear_vel.x)/speed)
+			if j_jump or r_jump:
+				playback.travel("jump_start")
 		else:
 			playback.travel("idle")
+			if j_jump or r_jump:
+				playback.travel("jump_start")
 	else:
-		if linear_vel.y > 0:
-			playback.travel("fall")
-		else:
-			
-			playback.travel("jump")
+		if j_jump or r_jump:
+			playback.travel("jump_start")
+			if linear_vel.y !=0:
+				playback.travel("jump")
+			if linear_vel.y==0:
+				playback.travel("fall")
 	
 	# This is placed last in order to overwrite the current state
 	if parry:

@@ -620,7 +620,6 @@ texture = ExtResource( 1 )
 normal_map = SubResource( 2 )
 vframes = 13
 hframes = 5
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.5
