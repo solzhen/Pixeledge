@@ -142,11 +142,13 @@ func _physics_process(delta):
 		linear_vel.x=0
 	if  playback.get_current_node() == "final":
 		if facing_right:
-			linear_vel.x=speed*4
+			linear_vel.x=speed*2
+			linear_vel.y=0
 			if is_on_floor():
 				linear_vel.y=0
 		else:
-			linear_vel.x=-speed*3
+			linear_vel.x=-speed*2
+			linear_vel.y=0
 			if is_on_floor():
 				linear_vel.y=0
 				
