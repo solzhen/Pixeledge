@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://scenes/Character/Gatosan/BasicNeutral.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Character/Gatosan/Final.gd" type="Script" id=2]
@@ -12,10 +12,11 @@
 [ext_resource path="res://scenes/Character/Gatosan/Parry.gd" type="Script" id=10]
 [ext_resource path="res://scenes/Character/Gatosan/san_sounds.gd" type="Script" id=11]
 [ext_resource path="res://sounds/slash.wav" type="AudioStream" id=12]
+[ext_resource path="res://sounds/genericjump.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 19.8816, 8.95827 )
+extents = Vector2( 48.4936, 62.2192 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -378,7 +379,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-length = 0.35
+length = 0.261
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -386,10 +387,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.19231 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 31, 32 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree/Sounds/jump:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.009399 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -923,7 +936,7 @@ states/special/node = SubResource( 32 )
 states/special/position = Vector2( 451.647, 614.382 )
 transitions = [ "idle", "basic", SubResource( 33 ), "fall", "idle", SubResource( 34 ), "basic", "idle", SubResource( 35 ), "idle", "fall", SubResource( 36 ), "jump_start", "jump", SubResource( 37 ), "jump", "fall", SubResource( 38 ), "idle", "jump_start", SubResource( 39 ), "basic", "fall", SubResource( 40 ), "jump_start", "basic", SubResource( 41 ), "jump", "basic", SubResource( 42 ), "fall", "basic", SubResource( 43 ), "basic", "jump", SubResource( 44 ), "basic", "special", SubResource( 45 ), "special", "idle", SubResource( 46 ), "idle", "special", SubResource( 47 ), "special", "basic", SubResource( 48 ), "special", "jump", SubResource( 49 ), "special", "fall", SubResource( 50 ), "jump_start", "special", SubResource( 51 ), "jump", "special", SubResource( 52 ), "fall", "special", SubResource( 53 ), "special", "final", SubResource( 54 ), "basic", "final", SubResource( 55 ), "idle", "final", SubResource( 56 ), "final", "idle", SubResource( 57 ), "special", "hurt", SubResource( 58 ), "final", "hurt", SubResource( 59 ), "fall", "hurt", SubResource( 60 ), "basic", "hurt", SubResource( 61 ), "idle", "hurt", SubResource( 62 ), "hurt", "idle", SubResource( 63 ), "hurt", "fall", SubResource( 64 ), "idle", "die", SubResource( 65 ), "hurt", "die", SubResource( 66 ), "fall", "die", SubResource( 67 ), "basic", "die", SubResource( 68 ), "special", "die", SubResource( 69 ), "die", "death", SubResource( 70 ), "death", "idle", SubResource( 71 ), "idle", "run", SubResource( 72 ), "fall", "run", SubResource( 73 ), "run", "basic", SubResource( 74 ), "basic", "run", SubResource( 75 ), "run", "jump_start", SubResource( 76 ), "special", "run", SubResource( 77 ), "run", "special", SubResource( 78 ), "run", "final", SubResource( 79 ), "run", "hurt", SubResource( 80 ), "run", "die", SubResource( 81 ), "run", "dash", SubResource( 82 ), "idle", "dash", SubResource( 83 ), "jump_start", "dash", SubResource( 84 ), "jump", "dash", SubResource( 85 ), "fall", "dash", SubResource( 86 ), "dash", "run", SubResource( 87 ), "dash", "idle", SubResource( 88 ), "dash", "fall", SubResource( 89 ), "run", "idle", SubResource( 90 ), "run", "fall", SubResource( 91 ), "hurt", "parry", SubResource( 92 ), "idle", "parry", SubResource( 93 ), "dash", "parry", SubResource( 94 ), "run", "parry", SubResource( 95 ), "parry", "idle", SubResource( 96 ) ]
 start_node = "idle"
-graph_offset = Vector2( 59.209, 111.476 )
+graph_offset = Vector2( 59.209, 24.4844 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=98]
 
@@ -947,12 +960,12 @@ texture = ExtResource( 9 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 7
-frame = 1
+frame = 20
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 44, 3.781 )
+position = Vector2( 78.9537, -7.51206 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -988,9 +1001,12 @@ script = ExtResource( 11 )
 [node name="slash1" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 12 )
 
+[node name="jump" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
+stream = ExtResource( 13 )
+
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 3 )
-attack = 3
+attack = 2
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 1 )

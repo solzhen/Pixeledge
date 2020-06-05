@@ -140,18 +140,16 @@ func _physics_process(delta):
 	else: 
 		linear_vel.y=0
 		linear_vel.x=0
+
 	if  playback.get_current_node() == "final":
 		if facing_right:
 			linear_vel.x=speed*2
-			linear_vel.y=0
-			if is_on_floor():
-				linear_vel.y=0
+			linear_vel.y=-1
+			pass
 		else:
 			linear_vel.x=-speed*2
-			linear_vel.y=0
-			if is_on_floor():
-				linear_vel.y=0
-				
+			linear_vel.y=-1
+			pass
 	linear_vel = move_and_slide(linear_vel, Vector2(0, -1))
 	
 	var on_floor = is_on_floor()
@@ -182,26 +180,30 @@ func _physics_process(delta):
 			linear_vel.x = 0
 		if parry or playback.get_current_node() == "parry":
 			linear_vel.x = 0
+		if playback.get_current_node()=="final_start" or playback.get_current_node()=="final_end" :
+			linear_vel.x=0
 	# Animation
 	
 	if on_floor:
-
 		if abs(linear_vel.x) > 10.0 or target_vel != 0:	
 			playback.travel("run")
 			$AnimationTree.set("parameters/run/TimeScale/scale", 2 * abs(linear_vel.x)/speed)
-			if j_jump or r_jump:
-				playback.travel("jump_start")
+
 		else:
 			playback.travel("idle")
 			if j_jump or r_jump:
 				playback.travel("jump_start")
 	else:
-		if j_jump or r_jump:
-			playback.travel("jump_start")
-			if linear_vel.y !=0:
-				playback.travel("jump")
-			if linear_vel.y==0:
-				playback.travel("fall")
+		if final:
+			playback.travel("final")
+		else:
+			if j_jump or r_jump:
+				playback.travel("jump_start")
+				if linear_vel.y !=0:
+					playback.travel("jump")
+				if linear_vel.y==0:
+					playback.travel("fall")
+
 	
 	# This is placed last in order to overwrite the current state
 	if parry:
@@ -222,6 +224,7 @@ func _physics_process(delta):
 		playback.travel("special")
 	if final:
 		playback.travel("final")
+
 	if dash:
 		if dash_timer.get_time_left() == 0:
 			playback.travel("dash")
