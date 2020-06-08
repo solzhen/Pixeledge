@@ -19,6 +19,10 @@ config/name="PixelEdge"
 run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [input]
 
 left_1={

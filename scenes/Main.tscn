@@ -117,16 +117,16 @@ font_data = ExtResource( 4 )
 size = 20
 font_data = ExtResource( 5 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 6.17822, -0.170738, 63.7807, -0.170738, 64.1156, 34.3237, 6.17822, 33.9888 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 51.7384, 35.3284, 0, 35.3284, 0, 0, 51.7384, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=12]
+[sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 
-[sub_resource type="TileSet" id=8]
+[sub_resource type="TileSet" id=11]
 0/name = "RIGHT-TS.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -137,14 +137,14 @@ points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 9 )
+0/shape = SubResource( 8 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -158,14 +158,14 @@ points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 11 )
+2/shape = SubResource( 9 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -179,14 +179,14 @@ points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 3/navigation_offset = Vector2( 0, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 12 )
+3/shape = SubResource( 10 )
 3/shape_one_way = false
 3/shape_one_way_margin = 1.0
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 12 ),
+"shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -277,7 +277,7 @@ __meta__ = {
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( -4.91095, -46.6541 )
-tile_set = SubResource( 8 )
+tile_set = SubResource( 11 )
 format = 1
 tile_data = PoolIntArray( 196612, 1, 0, 196613, 0, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 2, 0, 393216, 0, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 2, 0, 393225, 0, 0, 393226, 3, 0, 393227, 3, 0, 393228, 3, 0, 393229, 3, 0, 393230, 3, 0, 393231, 2, 0, 589826, 0, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 2, 0 )
 
