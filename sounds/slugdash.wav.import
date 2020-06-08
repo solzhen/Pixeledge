@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/slugdash.wav-e769349ab8f7f489a94652dc0dc67a76.sample"
+
+[deps]
+
+source_file="res://sounds/slugdash.wav"
+dest_files=[ "res://.import/slugdash.wav-e769349ab8f7f489a94652dc0dc67a76.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

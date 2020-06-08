@@ -9,7 +9,14 @@ func _ready():
 
 func _process(delta):
 	anim=get_parent().get("parameters/playback").get_current_node()
-	#if $A1.playing==true:
-	#	if anim !=("attack"): 
-	#		$A1.stop()
-	pass
+
+	if $slosh.playing==true:
+		if anim ==("hurt"): 
+			$slosh.stop()
+	if $slash1.playing==true:
+		if  anim == ("hurt"):
+			$slash1.stop() 
+	if $jump.playing==true:
+		if  anim != ("jump") and anim !=("jump_start"):
+			$jump.stop() 
+			

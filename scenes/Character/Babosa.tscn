@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://scenes/Character/Babosa/SpecialNeutral.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Attack/Attacks.gd" type="Script" id=2]
@@ -18,10 +18,11 @@
 [ext_resource path="res://sounds/slug_jump.wav" type="AudioStream" id=16]
 [ext_resource path="res://sounds/Strong_hit.wav" type="AudioStream" id=17]
 [ext_resource path="res://sounds/heavy_babosa.wav" type="AudioStream" id=18]
+[ext_resource path="res://sounds/slugdash.wav" type="AudioStream" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 20, 10 )
+extents = Vector2( 14, 15 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -200,6 +201,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 43, 44 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree/Sounds/dash:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -1169,7 +1182,7 @@ frame = 3
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 13.0183, 13.6387 )
+position = Vector2( 20.5445, 6.94873 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -1225,9 +1238,11 @@ stream = ExtResource( 16 )
 [node name="heavy" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 18 )
 
+[node name="dash" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
+stream = ExtResource( 19 )
+
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 2 )
-attack = 4
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 5 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://scenes/Character/Gatosan/BasicNeutral.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Character/Gatosan/Final.gd" type="Script" id=2]
@@ -13,12 +13,79 @@
 [ext_resource path="res://scenes/Character/Gatosan/san_sounds.gd" type="Script" id=11]
 [ext_resource path="res://sounds/slash.wav" type="AudioStream" id=12]
 [ext_resource path="res://sounds/genericjump.wav" type="AudioStream" id=13]
+[ext_resource path="res://sounds/deep_cut.wav" type="AudioStream" id=14]
+[ext_resource path="res://sounds/dash.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 48.4936, 62.2192 )
 
 [sub_resource type="Animation" id=2]
+resource_name = "atack2"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Attack/Hitbox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 13.7591, 14.5617 ), Vector2( 32.7528, -11.1055 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Attack/Hitbox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Attack/Hitbox:shape:extents")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 47.9803, 36.552 ), Vector2( 25.3931, 14.9916 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Attacks:attack")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -103,7 +170,7 @@ tracks/6/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -118,8 +185,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 43, 44 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree/Sounds/dash:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -149,7 +228,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -163,7 +242,7 @@ tracks/0/keys = {
 "values": [ 37, 38, 39, 40, 41, 42 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -178,7 +257,7 @@ tracks/0/keys = {
 "values": [ 12 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.4
 loop = true
 step = 0.2
@@ -195,7 +274,7 @@ tracks/0/keys = {
 "values": [ 34 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -257,8 +336,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [ 2 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationTree/Sounds/slosh:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.226201 ),
+"transitions": PoolRealArray( 0.297302 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -309,7 +400,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 1.1
 loop = true
 step = 0.2
@@ -362,7 +453,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -378,7 +469,7 @@ tracks/0/keys = {
 "values": [ 33 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 0.261
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -405,8 +496,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "parry"
+[sub_resource type="Animation" id=14]
 length = 0.67
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -493,7 +583,7 @@ tracks/6/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 0.9
 loop = true
 step = 0.2
@@ -510,72 +600,8 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 9, 10 ]
 }
 
-[sub_resource type="Animation" id=15]
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 24, 25, 26, 27, 28 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite/Attack/Hitbox:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 13.7591, 14.5617 ), Vector2( 32.7528, -11.1055 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite/Attack/Hitbox:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.45 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite/Attack/Hitbox:shape:extents")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 47.9803, 36.552 ), Vector2( 25.3931, 14.9916 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Attacks:attack")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-
 [sub_resource type="Animation" id=16]
-resource_name = "special electric"
+resource_name = "special"
 length = 0.518
 step = 0.05
 tracks/0/type = "value"
@@ -960,7 +986,7 @@ texture = ExtResource( 9 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 7
-frame = 20
+frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -970,21 +996,21 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/attack = SubResource( 2 )
-anims/dash = SubResource( 3 )
-anims/death = SubResource( 4 )
-anims/die = SubResource( 5 )
-anims/end_run = SubResource( 6 )
-anims/fall = SubResource( 7 )
-anims/final = SubResource( 8 )
-anims/hurt = SubResource( 9 )
-anims/idle = SubResource( 10 )
-anims/jump = SubResource( 11 )
-anims/jump_start = SubResource( 12 )
-anims/parry = SubResource( 13 )
-anims/run = SubResource( 14 )
-anims/special = SubResource( 15 )
-"anims/special electric" = SubResource( 16 )
+anims/atack2 = SubResource( 2 )
+anims/attack = SubResource( 3 )
+anims/dash = SubResource( 4 )
+anims/death = SubResource( 5 )
+anims/die = SubResource( 6 )
+anims/end_run = SubResource( 7 )
+anims/fall = SubResource( 8 )
+anims/final = SubResource( 9 )
+anims/hurt = SubResource( 10 )
+anims/idle = SubResource( 11 )
+anims/jump = SubResource( 12 )
+anims/jump_start = SubResource( 13 )
+anims/parry = SubResource( 14 )
+anims/run = SubResource( 15 )
+anims/special = SubResource( 16 )
 "anims/special electric combo1" = SubResource( 17 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -1004,9 +1030,15 @@ stream = ExtResource( 12 )
 [node name="jump" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 13 )
 
+[node name="slosh" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
+stream = ExtResource( 14 )
+
+[node name="dash" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
+stream = ExtResource( 15 )
+
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 3 )
-attack = 2
+attack = 1
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 1 )
