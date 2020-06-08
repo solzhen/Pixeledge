@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=117 format=2]
 
 [ext_resource path="res://scenes/Character/Gatosan/BasicNeutral.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Character/Gatosan/Final.gd" type="Script" id=2]
@@ -15,10 +15,11 @@
 [ext_resource path="res://sounds/genericjump.wav" type="AudioStream" id=13]
 [ext_resource path="res://sounds/deep_cut.wav" type="AudioStream" id=14]
 [ext_resource path="res://sounds/dash.wav" type="AudioStream" id=15]
+[ext_resource path="res://sounds/electric1.wav" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 48.4936, 62.2192 )
+extents = Vector2( 25.3931, 14.9916 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "atack2"
@@ -664,6 +665,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationTree/Sounds/shock1:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "special electric combo1"
@@ -986,12 +999,12 @@ texture = ExtResource( 9 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 7
-frame = 2
+frame = 5
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 78.9537, -7.51206 )
+position = Vector2( 39, -2.235 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -1035,6 +1048,9 @@ stream = ExtResource( 14 )
 
 [node name="dash" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 15 )
+
+[node name="shock1" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
+stream = ExtResource( 16 )
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 3 )

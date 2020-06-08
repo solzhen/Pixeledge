@@ -19,4 +19,6 @@ func _process(delta):
 	if $jump.playing==true:
 		if  anim != ("jump") and anim !=("jump_start"):
 			$jump.stop() 
-			
+	if $shock1.playing==true:
+		if anim ==("hurt"): 
+			$shock1.stop()
