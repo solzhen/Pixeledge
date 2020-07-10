@@ -9,8 +9,9 @@ func _ready():
 	var sam = load("res://scenes/Character/Gatosan.tscn")
 	var babosa = load("res://scenes/Character/Babosa.tscn")
 	var legoshitaro= load("res://scenes/Character/Gatosan.tscn") #Legoshitaro.tscn
+	var czim = load("res://scenes/Character/Czim.tscn")
 	
-	var chars = [legoshitaro, sam, babosa] #legoshitaro	
+	var chars = [legoshitaro, sam, babosa, czim] #legoshitaro	
 	
 	var player1 = chars[Global.player_1 - 1].instance()
 	var player2 = chars[Global.player_2 - 1].instance()
