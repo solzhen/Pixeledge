@@ -258,7 +258,7 @@ __meta__ = {
 [node name="textura_P1" type="TextureProgress" parent="p1_lifebar"]
 margin_right = 195.0
 margin_bottom = 85.0
-value = 100.0
+value = 20.0
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 3 )
 fill_mode = 1

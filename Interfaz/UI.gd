@@ -13,9 +13,8 @@ onready var anim_playerp2 = get_node("AnimationPlayer2")
 onready var valor_vida_p1 = get_node("p1_lifebar/textura_P1")
 onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 # Called when the node enters the scene tree for the first time.
-
 func _ready():
-	
+	print("ready ui")
 	if Player1_char < 3:
 		print('p1 terrestre')
 		anim_playerp1.play("terrestre1")
@@ -29,11 +28,22 @@ func _ready():
 		print('p2 alien')
 		anim_playerp2.play("alien2") 
 	pass # Replace with function body.
+	actualizar_vida(100, 100)
+	
 
 func actualizar_vida(a,b):
 	print('se intento')
 	valor_vida_p1.value = a
 	valor_vida_p2.value = b
+
+func health_update_p1(value):
+	print(value, " p1")
+	valor_vida_p1.value = value
+
+func health_update_p2(value):
+	print(value, " p2")
+	valor_vida_p2.value = value
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
