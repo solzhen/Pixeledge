@@ -10,9 +10,9 @@ func _ready():
 func _process(delta):
 	anim=get_parent().get("parameters/playback").get_current_node()
 
-	if $slosh.playing==true:
+	if $wave_shock.playing==true:
 		if anim ==("hurt"): 
-			$slosh.stop()
+			$wave_shock.stop()
 	if $slash1.playing==true:
 		if  anim == ("hurt"):
 			$slash1.stop() 

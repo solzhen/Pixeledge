@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wave_shockt.wav-0b0079cb4e03276a2f5d4cb608b1d5eb.sample"
+
+[deps]
+
+source_file="res://sounds/wave_shockt.wav"
+dest_files=[ "res://.import/wave_shockt.wav-0b0079cb4e03276a2f5d4cb608b1d5eb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
