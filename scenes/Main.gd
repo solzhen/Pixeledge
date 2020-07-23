@@ -2,7 +2,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	print("ready main")
 	print (Global.player_1)
 	print (Global.player_2)
 	
@@ -26,6 +26,8 @@ func _ready():
 	player2.player_index = 2
 	player2.set_name("Player2")
 	
+	player1.connect("health_update", $UI, "health_update_p1")
+	player2.connect("health_update", $UI, "health_update_p2")
+	
 	add_child(player1)
 	add_child(player2)
-
