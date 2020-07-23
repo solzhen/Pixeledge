@@ -8,7 +8,7 @@ func _ready():
 	
 	var sam = load("res://scenes/Character/Gatosan.tscn")
 	var babosa = load("res://scenes/Character/Babosa.tscn")
-	var legoshitaro= load("res://scenes/Character/Gatosan.tscn") #Legoshitaro.tscn
+	var legoshitaro= load("res://scenes/Character/Legoshitaro.tscn") #Legoshitaro.tscn
 	var czim = load("res://scenes/Character/Czim.tscn")
 	
 	var chars = [legoshitaro, sam, babosa, czim] #legoshitaro	
