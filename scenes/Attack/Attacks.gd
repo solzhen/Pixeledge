@@ -16,6 +16,7 @@ func self_harm():
 	get_parent().take_knockback(self_knockback)
 	
 # TODO: HANDLE STREAK (FINAL = 2)
+# warning-ignore:function_conflicts_variable
 func attack(body: Node, streak: int):
 	var min_streak = get_parent().min_streak
 	if not body.is_in_group("Character") and not body.is_in_group("Enemy"):
