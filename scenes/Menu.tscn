@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/Open_Sans/OpenSans-SemiBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://fonts/Open_Sans/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=3]
+[ext_resource path="res://logo.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -28,6 +29,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="logo" type="Sprite" parent="CanvasLayer/Panel"]
+position = Vector2( 512.025, 299.26 )
+scale = Vector2( 0.639468, 0.498574 )
+texture = ExtResource( 4 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -52,46 +58,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="New" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Versus" type="Button" parent="CanvasLayer/VBoxContainer"]
 margin_top = 73.0
 margin_right = 425.0
 margin_bottom = 107.0
 custom_fonts/font = SubResource( 2 )
-text = "New Game"
+text = "Versus"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Load" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Creditos" type="Button" parent="CanvasLayer/VBoxContainer"]
 margin_top = 111.0
 margin_right = 425.0
 margin_bottom = 145.0
 custom_fonts/font = SubResource( 2 )
-text = "Load Game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Settings" type="Button" parent="CanvasLayer/VBoxContainer"]
-margin_top = 149.0
-margin_right = 425.0
-margin_bottom = 183.0
-custom_fonts/font = SubResource( 2 )
-text = "Settings"
+text = "Creditos"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer"]
-margin_top = 187.0
+margin_top = 149.0
 margin_right = 425.0
-margin_bottom = 221.0
+margin_bottom = 183.0
 custom_fonts/font = SubResource( 3 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/New" to="." method="_on_New_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Load" to="." method="_on_Load_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Versus" to="." method="_on_Versus_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

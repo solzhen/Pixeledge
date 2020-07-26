@@ -4,10 +4,10 @@ func _ready():
 	pass
 
 
-func _on_New_pressed():
+func _on_Versus_pressed():
 	get_tree().change_scene("res://scenes/Character Select.tscn")
 
-func _on_Settings_pressed():
+func _on_Creditos_pressed():
 	pass # Replace with function body.
 
 
