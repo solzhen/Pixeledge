@@ -115,14 +115,14 @@ func _physics_process(delta):
 	var j_jump = Input.is_action_just_pressed("jump" + "_" + str(player_index))
 	var h_jump = Input.is_action_pressed("jump" + "_" + str(player_index))
 	var r_jump = Input.is_action_just_released("jump" + "_" + str(player_index))
-	var basic = Input.is_action_just_pressed("basic" + "_" + str(player_index))
-	var special = Input.is_action_just_pressed("special" + "_" + str(player_index))
+	var basic = Input.is_action_pressed("basic" + "_" + str(player_index))
+	var special = Input.is_action_pressed("special" + "_" + str(player_index))
 	var dash = Input.is_action_just_pressed("dash" + "_" + str(player_index))
 	var final = Input.is_action_just_pressed("final" + "_" + str(player_index))
 	var right = Input.is_action_pressed("right" + "_" + str(player_index))
 	var left = Input.is_action_pressed("left" + "_" + str(player_index))
 	var die = Input.is_action_pressed("die" + "_" + str(player_index))
-	var parry =  Input.is_action_pressed("parry" + "_" + str(player_index))
+	var parry =  Input.is_action_just_pressed("parry" + "_" + str(player_index))
 	
 	## TODO: parry animation, set parry state, change parry handle on attacker
 	
@@ -143,11 +143,11 @@ func _physics_process(delta):
 
 	if  playback.get_current_node() == "final":
 		if facing_right:
-			linear_vel.x=speed*2
+			linear_vel.x=speed*1.5
 			linear_vel.y=-1
 			pass
 		else:
-			linear_vel.x=-speed*2
+			linear_vel.x=-speed*1.5
 			linear_vel.y=-1
 			pass
 	linear_vel = move_and_slide(linear_vel, Vector2(0, -1))
@@ -180,15 +180,17 @@ func _physics_process(delta):
 			linear_vel.x = 0
 		if parry or playback.get_current_node() == "parry":
 			linear_vel.x = 0
+		if special or playback.get_current_node() == "special": 
+			linear_vel.x = 0
+		if special or playback.get_current_node() == "special2": 
+			linear_vel.x = 0
 		if playback.get_current_node()=="final_start" or playback.get_current_node()=="final_end" :
 			linear_vel.x=0
 	# Animation
-	
 	if on_floor:
 		if abs(linear_vel.x) > 10.0 or target_vel != 0:	
 			playback.travel("run")
 			$AnimationTree.set("parameters/run/TimeScale/scale", 2 * abs(linear_vel.x)/speed)
-
 		else:
 			playback.travel("idle")
 			if j_jump or r_jump:
@@ -203,9 +205,10 @@ func _physics_process(delta):
 					playback.travel("jump")
 				if linear_vel.y==0:
 					playback.travel("fall")
-
 	
 	# This is placed last in order to overwrite the current state
+			 
+
 	if parry:
 		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
 			playback.travel("parry")
@@ -223,7 +226,7 @@ func _physics_process(delta):
 	if special:
 		playback.travel("special")
 	if final:
-		playback.travel("final")
+		playback.travel("final_end")
 
 	if dash:
 		if dash_timer.get_time_left() == 0:
@@ -235,12 +238,16 @@ func _physics_process(delta):
 			if not on_floor:
 				linear_vel.y = -100
 			dash_timer.start()
-	
+			
+	if (left or right) and basic: playback.travel("basic2")	
+	if (left or right) and special: playback.travel("special2")		
+			
 	if left and not right:
 		if facing_right:
 			scale.x = -1
 			$HealthBar.rect_scale.x *= -1
 		facing_right = false
+
 	if right and not left:
 		if not facing_right:
 			scale.x = -1

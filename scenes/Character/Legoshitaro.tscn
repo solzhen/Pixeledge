@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=117 format=2]
 
 [ext_resource path="res://scenes/Character/Legoshitaro/Final.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Character/Legoshitaro/SpecialNeutral.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://sounds/deep_cut.wav" type="AudioStream" id=14]
 [ext_resource path="res://sounds/dash.wav" type="AudioStream" id=15]
 [ext_resource path="res://sounds/electric1.wav" type="AudioStream" id=16]
+[ext_resource path="res://sounds/lego_hurt.wav" type="AudioStream" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -336,6 +337,40 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AnimationTree/Sounds/Hurt")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationTree/Sounds/Hurt:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimationTree/Sounds/Hurt:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.01 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -9.772 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -935,7 +970,7 @@ texture = ExtResource( 11 )
 offset = Vector2( 27, 0 )
 vframes = 9
 hframes = 16
-frame = 31
+frame = 71
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -987,6 +1022,10 @@ stream = ExtResource( 15 )
 
 [node name="shock1" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 16 )
+
+[node name="Hurt" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
+stream = ExtResource( 17 )
+volume_db = -9.772
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 3 )

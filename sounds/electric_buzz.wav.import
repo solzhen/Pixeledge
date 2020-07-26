@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/electric_buzz.wav-2e532f7e661d7f8ab043551053c6422d.sample"
+
+[deps]
+
+source_file="res://sounds/electric_buzz.wav"
+dest_files=[ "res://.import/electric_buzz.wav-2e532f7e661d7f8ab043551053c6422d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

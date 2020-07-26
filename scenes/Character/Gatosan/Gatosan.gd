@@ -113,7 +113,7 @@ func _physics_process(delta):
 	var h_jump = Input.is_action_pressed("jump" + "_" + str(player_index))
 	var r_jump = Input.is_action_just_released("jump" + "_" + str(player_index))
 	var basic = Input.is_action_just_pressed("basic" + "_" + str(player_index))
-	var special = Input.is_action_just_pressed("special" + "_" + str(player_index))
+	var special = Input.is_action_pressed("special" + "_" + str(player_index))
 	var dash = Input.is_action_just_pressed("dash" + "_" + str(player_index))
 	var final = Input.is_action_just_pressed("final" + "_" + str(player_index))
 	var right = Input.is_action_pressed("right" + "_" + str(player_index))
@@ -158,7 +158,17 @@ func _physics_process(delta):
 	linear_vel.x = lerp(linear_vel.x, target_vel, 0.25)
 	
 	if on_floor:
-		if basic or playback.get_current_node() == "basic":
+		if basic or playback.get_current_node() == "basic": 
+			linear_vel.x = 0
+		if basic or playback.get_current_node() == "basic2": 
+			linear_vel.x = 0
+		if basic or playback.get_current_node() == "combo1":
+			linear_vel.x = 0
+		if parry or playback.get_current_node() == "parry":
+			linear_vel.x = 0
+		if special or playback.get_current_node() == "special": 
+			linear_vel.x = 0
+		if special or playback.get_current_node() == "special2": 
 			linear_vel.x = 0
 	
 	# Animation
@@ -193,8 +203,6 @@ func _physics_process(delta):
 				linear_vel.x=speed*3
 			else:
 				linear_vel.x=-speed*3
-		
-
 	if dash:
 		if dash_timer.get_time_left() == 0:
 			playback.travel("dash")
@@ -205,6 +213,9 @@ func _physics_process(delta):
 			if not on_floor:
 				linear_vel.y = -100
 			dash_timer.start()
+			
+	if (left or right) and basic: playback.travel("basic2")	
+	if (left or right) and special: playback.travel("special2")	
 	
 	if left and not right:
 		if facing_right:

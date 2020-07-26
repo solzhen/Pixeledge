@@ -112,8 +112,8 @@ func _physics_process(delta):
 	var j_jump = Input.is_action_just_pressed("jump" + "_" + str(player_index))
 	var h_jump = Input.is_action_pressed("jump" + "_" + str(player_index))
 	var r_jump = Input.is_action_just_released("jump" + "_" + str(player_index))
-	var basic = Input.is_action_just_pressed("basic" + "_" + str(player_index))
-	var special = Input.is_action_just_pressed("special" + "_" + str(player_index))
+	var basic = Input.is_action_pressed("basic" + "_" + str(player_index))
+	var special = Input.is_action_pressed("special" + "_" + str(player_index))
 	var dash = Input.is_action_just_pressed("dash" + "_" + str(player_index))
 	var final = Input.is_action_just_pressed("final" + "_" + str(player_index))
 	var right = Input.is_action_pressed("right" + "_" + str(player_index))
@@ -159,7 +159,16 @@ func _physics_process(delta):
 	if on_floor:
 		if basic or playback.get_current_node() == "basic":
 			linear_vel.x = 0
-	
+		if basic or playback.get_current_node() == "basic2": 
+			linear_vel.x = 0
+		if parry or playback.get_current_node() == "parry":
+			linear_vel.x = 0
+		if special or playback.get_current_node() == "special": 
+			linear_vel.x = 0
+		if special or playback.get_current_node() == "special2": 
+			linear_vel.x = 0
+		if playback.get_current_node()=="final":
+			linear_vel.x=0
 	# Animation
 	
 	if on_floor:
@@ -179,6 +188,14 @@ func _physics_process(delta):
 		if $CancelBar.value>10:
 			playback.travel("parry")
 			print($CancelBar.value)
+			
+	if playback.get_current_node()=="basic":
+		if special:
+			playback.travel("basic2")
+	if playback.get_current_node()=="special":
+		if special:
+			playback.travel("basic2")	
+	
 	if basic:
 		playback.travel("basic")
 	if special:
@@ -199,7 +216,13 @@ func _physics_process(delta):
 			if not on_floor:
 				linear_vel.y = -100
 			dash_timer.start()
-	
+			
+	if (left or right) and basic: playback.travel("basic2")	
+	if (left or right) and special: playback.travel("special2")	
+	if playback.get_current_node()=="special2" or streak>6:
+		if special: playback.travel("heavy")
+			
+		
 	if left and not right:
 		if facing_right:
 			scale.x = -1
@@ -226,7 +249,7 @@ func _on_Quit_pressed():
 func _on_Attack_body_entered(body):
 	#$Sprite/Attack/Hitbox.disabled = true
 	$Attacks.attack(body, streak)
-	if playback.get_current_node() == "parry":
+	if playback.get_current_node()=="parry":
 		playback.travel("post-parry")
 	pass # Replace with function body.
 	

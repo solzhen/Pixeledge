@@ -1,8 +1,8 @@
 extends Node
 
 var knockback = Vector2()
-var damage = 100
+var damage = 80
 
 func _ready():
-	knockback.x = 300
-	knockback.y = -5
+	knockback.x = 200
+	knockback.y = 10
