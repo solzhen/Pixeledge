@@ -2,13 +2,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	print("ready main")
 	print (Global.player_1)
 	print (Global.player_2)
 	
 	var sam = load("res://scenes/Character/Gatosan.tscn")
 	var babosa = load("res://scenes/Character/Babosa.tscn")
-	var legoshitaro= load("res://scenes/Character/Gatosan.tscn") #Legoshitaro.tscn
+	var legoshitaro= load("res://scenes/Character/Legoshitaro.tscn") #Legoshitaro.tscn
 	var czim = load("res://scenes/Character/Czim.tscn")
 	
 	var chars = [legoshitaro, sam, babosa, czim] #legoshitaro	
@@ -26,6 +26,8 @@ func _ready():
 	player2.player_index = 2
 	player2.set_name("Player2")
 	
+	player1.connect("health_update", $UI, "health_update_p1")
+	player2.connect("health_update", $UI, "health_update_p2")
+	
 	add_child(player1)
 	add_child(player2)
-

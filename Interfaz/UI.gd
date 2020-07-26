@@ -15,7 +15,7 @@ onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	
+	actualizar_vida(100,100)
 	if Player1_char < 3:
 		print('p1 terrestre')
 		anim_playerp1.play("terrestre1")
@@ -34,7 +34,13 @@ func actualizar_vida(a,b):
 	print('se intento')
 	valor_vida_p1.value = a
 	valor_vida_p2.value = b
+
+func health_update_p1(value):
+	valor_vida_p1.value = value
 	
+
+func health_update_p2(value):
+	valor_vida_p2.value = value
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

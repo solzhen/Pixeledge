@@ -4,8 +4,10 @@ export var player_index = 0
 
 # stats
 var max_health = 1000
-var health = max_health
+var health = max_health setget set_health
 var death = false
+
+signal health_update(value)
 
 # dash 
 var dash_timer = null
@@ -92,7 +94,7 @@ func take_damage(value: int):
 	if !death:
 		streak=0
 		$StreakBar.value=streak
-		health = health - value
+		set_health(health - value)
 		$HealthBar.value = max(health,0)
 		playback.travel("hurt")
 		if health <= 0:
@@ -258,3 +260,6 @@ func handle_attack(damage, knockback):
 	self.take_damage(damage)
 	self.take_knockback(knockback)
 	
+func set_health(value):
+	health = value
+	emit_signal("health_update", 100.0 * value / max_health)
