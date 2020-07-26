@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cancion Nivel loop.ogg-2a2e989c1aafd68215aaa855723ad6ac.oggstr"
+
+[deps]
+
+source_file="res://sounds/BGM/Cancion Nivel loop.ogg"
+dest_files=[ "res://.import/Cancion Nivel loop.ogg-2a2e989c1aafd68215aaa855723ad6ac.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

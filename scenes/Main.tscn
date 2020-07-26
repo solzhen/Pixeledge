@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://textures/RIGHT-TS.png" type="Texture" id=1]
 [ext_resource path="res://textures/Pack/TileSet.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://textures/LEFT-TS.png" type="Texture" id=9]
 [ext_resource path="res://textures/stage.png" type="Texture" id=10]
 [ext_resource path="res://Interfaz/UI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sounds/BGM/Cancion Nivel loop.ogg" type="AudioStream" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 76, 0, 76 )
@@ -291,8 +292,15 @@ texture = ExtResource( 10 )
 [node name="UI" parent="." instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1025.0
+margin_left = 5.66321
+margin_right = 1030.66
 margin_bottom = 639.0
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 508.081, 344.613 )
+stream = ExtResource( 12 )
+volume_db = -8.667
+autoplay = true
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Continue" to="InGameMenu" method="_on_Continue_pressed"]
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Retry" to="InGameMenu" method="_on_Retry_pressed"]
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Quit" to="InGameMenu" method="_on_Quit_pressed"]
