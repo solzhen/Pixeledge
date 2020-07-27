@@ -30,8 +30,12 @@ func _on_Continue_pressed():
 func _on_Retry_pressed():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+	pass
 
+func _on_Quit_to_Character_Select_pressed():
+	get_tree().change_scene("res://scenes/Character Select.tscn")
 
 func _on_Quit_to_Menu_pressed():
 	get_tree().change_scene("res://scenes/Menu.tscn")
-	pass # Replace with function body.
+
+

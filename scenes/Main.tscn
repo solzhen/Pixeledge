@@ -209,7 +209,6 @@ pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="Panel" type="Panel" parent="InGameMenu"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -217,13 +216,12 @@ anchor_bottom = 0.5
 margin_left = -175.0
 margin_top = -100.0
 margin_right = 175.0
-margin_bottom = 100.0
+margin_bottom = 143.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="InGameMenu"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -267,12 +265,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit to Menu" type="Button" parent="InGameMenu/VBoxContainer"]
+[node name="Quit to Character Select" type="Button" parent="InGameMenu/VBoxContainer"]
 margin_top = 149.0
 margin_right = 300.0
 margin_bottom = 183.0
+text = "Quit to Character Select"
+
+[node name="Quit to Menu" type="Button" parent="InGameMenu/VBoxContainer"]
+margin_top = 187.0
+margin_right = 300.0
+margin_bottom = 221.0
 custom_fonts/font = SubResource( 7 )
-text = "Quit"
+text = "Quit to Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -292,9 +296,10 @@ texture = ExtResource( 10 )
 [node name="UI" parent="." instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 5.66321
-margin_right = 1030.66
-margin_bottom = 639.0
+margin_left = 16.9606
+margin_top = -21.2166
+margin_right = 1041.96
+margin_bottom = 618.783
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 511, 0 )
@@ -303,5 +308,5 @@ volume_db = -8.667
 autoplay = true
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Continue" to="InGameMenu" method="_on_Continue_pressed"]
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Retry" to="InGameMenu" method="_on_Retry_pressed"]
-[connection signal="pressed" from="InGameMenu/VBoxContainer/Quit to Menu" to="." method="_on_Quit_to_Menu_pressed"]
+[connection signal="pressed" from="InGameMenu/VBoxContainer/Quit to Character Select" to="InGameMenu" method="_on_Quit_to_Character_Select_pressed"]
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Quit to Menu" to="InGameMenu" method="_on_Quit_to_Menu_pressed"]
