@@ -297,7 +297,7 @@ margin_right = 1030.66
 margin_bottom = 639.0
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 508.081, 344.613 )
+position = Vector2( 511, 0 )
 stream = ExtResource( 12 )
 volume_db = -8.667
 autoplay = true
