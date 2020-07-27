@@ -123,6 +123,9 @@ func _physics_process(delta):
 	var die = Input.is_action_pressed("die" + "_" + str(player_index))
 	var parry =  Input.is_action_pressed("parry" + "_" + str(player_index))
 	
+	if (position.x > 1120 or position.x <-100 or position.y > 700) and death == false:
+		death = true
+		print('se murio')
 	## TODO: parry animation, set parry state, change parry handle on attacker
 	if die or death:
 		death = true
