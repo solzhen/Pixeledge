@@ -267,7 +267,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="InGameMenu/VBoxContainer"]
+[node name="Quit to Menu" type="Button" parent="InGameMenu/VBoxContainer"]
 margin_top = 149.0
 margin_right = 300.0
 margin_bottom = 183.0
@@ -303,4 +303,5 @@ volume_db = -8.667
 autoplay = true
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Continue" to="InGameMenu" method="_on_Continue_pressed"]
 [connection signal="pressed" from="InGameMenu/VBoxContainer/Retry" to="InGameMenu" method="_on_Retry_pressed"]
-[connection signal="pressed" from="InGameMenu/VBoxContainer/Quit" to="InGameMenu" method="_on_Quit_pressed"]
+[connection signal="pressed" from="InGameMenu/VBoxContainer/Quit to Menu" to="." method="_on_Quit_to_Menu_pressed"]
+[connection signal="pressed" from="InGameMenu/VBoxContainer/Quit to Menu" to="InGameMenu" method="_on_Quit_to_Menu_pressed"]

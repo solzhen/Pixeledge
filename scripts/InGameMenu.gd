@@ -32,5 +32,6 @@ func _on_Retry_pressed():
 	get_tree().reload_current_scene()
 
 
-func _on_Quit_pressed():
-	get_tree().quit()
+func _on_Quit_to_Menu_pressed():
+	get_tree().change_scene("res://scenes/Menu.tscn")
+	pass # Replace with function body.
