@@ -24,7 +24,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 14.8283, 10.1842 )
+extents = Vector2( 55, 10 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -879,10 +879,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.603133, 0.727427, 0.837458, 0.947489, 1.00658 ),
+"times": PoolRealArray( 0.532977, 0.727427, 0.837458, 0.947489, 1.00658 ),
 "transitions": PoolRealArray( 0.0136024, 0.017337, 0.00418661, 0.00340059, 1 ),
 "update": 1,
-"values": [ Vector2( 30, 20 ), Vector2( 45, 30 ), Vector2( 30, 35 ), Vector2( 30, 20 ), Vector2( 20, 10 ) ]
+"values": [ Vector2( 35, 10 ), Vector2( 55, 10 ), Vector2( 30, 35 ), Vector2( 30, 20 ), Vector2( 20, 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite/Attack/Hitbox:position")
@@ -891,10 +891,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.244513, 1.00658 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.244513, 0.695458, 0.741211, 1.00658 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 20.5445, 6.94873 ), Vector2( -0.361567, -2.66806 ), Vector2( 13.0183, 13.6387 ) ]
+"values": [ Vector2( 20.5445, 6.94873 ), Vector2( -0.361567, -2.66806 ), Vector2( 30, 5 ), Vector2( 30, 15 ), Vector2( 13.0183, 13.6387 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite/Attack/Hitbox:disabled")
@@ -903,7 +903,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.59702, 1.04937 ),
+"times": PoolRealArray( 0, 0.59702, 0.854154 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -951,10 +951,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.01, 0.0788719, 0.13602, 0.218024, 0.359248, 0.497805, 0.584794, 0.661128, 0.740752, 0.844827, 0.915394, 0.997805, 1.04529, 1.08605 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.0542462, 0.2, 0.272548, 0.342045, 0.426794, 0.517643, 0.593241, 0.67799, 0.695633, 0.737678, 0.865131, 0.983432 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 35, 31, 32, 34, 32, 31, 50, 33, 51, 52, 51, 50, 31, 35 ]
+"values": [ 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88 ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -1501,12 +1501,12 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 18
 hframes = 6
-frame = 3
+frame = 1
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 18.0455, 9.14594 )
+position = Vector2( 30, 15 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1565,7 +1565,7 @@ volume_db = -10.0
 
 [node name="heavy" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 12 )
-volume_db = -15.564
+volume_db = -20.564
 
 [node name="dash" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 19 )
@@ -1577,6 +1577,7 @@ volume_db = -20.782
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 2 )
+attack = 4
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 5 )
@@ -1597,10 +1598,12 @@ script = ExtResource( 11 )
 script = ExtResource( 20 )
 
 [node name="CancelBar" parent="." instance=ExtResource( 6 )]
+visible = false
 max_value = 599.0
 allow_greater = false
 
 [node name="HealthBar" parent="." instance=ExtResource( 7 )]
+visible = false
 margin_left = -35.1518
 margin_top = -63.6442
 margin_right = 35.8482
@@ -1608,6 +1611,7 @@ margin_bottom = -47.6442
 rect_pivot_offset = Vector2( 35, 0 )
 
 [node name="StreakBar" parent="." instance=ExtResource( 8 )]
+visible = false
 max_value = 50.0
 percent_visible = false
 

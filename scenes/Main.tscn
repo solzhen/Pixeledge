@@ -216,7 +216,7 @@ anchor_bottom = 0.5
 margin_left = -175.0
 margin_top = -100.0
 margin_right = 175.0
-margin_bottom = 143.0
+margin_bottom = 161.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -268,15 +268,26 @@ __meta__ = {
 [node name="Quit to Character Select" type="Button" parent="InGameMenu/VBoxContainer"]
 margin_top = 149.0
 margin_right = 300.0
-margin_bottom = 183.0
+margin_bottom = 169.0
 text = "Quit to Character Select"
 
 [node name="Quit to Menu" type="Button" parent="InGameMenu/VBoxContainer"]
-margin_top = 187.0
+margin_top = 173.0
 margin_right = 300.0
-margin_bottom = 221.0
+margin_bottom = 207.0
 custom_fonts/font = SubResource( 7 )
 text = "Quit to Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="InGameMenu/VBoxContainer"]
+visible = false
+margin_top = 211.0
+margin_right = 300.0
+margin_bottom = 245.0
+custom_fonts/font = SubResource( 7 )
+text = "Settings"
 __meta__ = {
 "_edit_use_anchors_": false
 }

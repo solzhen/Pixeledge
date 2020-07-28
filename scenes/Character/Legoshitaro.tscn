@@ -1145,7 +1145,7 @@ states/special/node = SubResource( 33 )
 states/special/position = Vector2( 451.647, 614.382 )
 transitions = [ "idle", "basic", SubResource( 34 ), "fall", "idle", SubResource( 35 ), "basic", "idle", SubResource( 36 ), "idle", "fall", SubResource( 37 ), "jump_start", "jump", SubResource( 38 ), "jump", "fall", SubResource( 39 ), "idle", "jump_start", SubResource( 40 ), "basic", "fall", SubResource( 41 ), "jump_start", "basic", SubResource( 42 ), "jump", "basic", SubResource( 43 ), "fall", "basic", SubResource( 44 ), "basic", "jump", SubResource( 45 ), "basic", "special", SubResource( 46 ), "special", "idle", SubResource( 47 ), "idle", "special", SubResource( 48 ), "special", "basic", SubResource( 49 ), "special", "jump", SubResource( 50 ), "special", "fall", SubResource( 51 ), "jump_start", "special", SubResource( 52 ), "jump", "special", SubResource( 53 ), "fall", "special", SubResource( 54 ), "special", "final", SubResource( 55 ), "basic", "final", SubResource( 56 ), "idle", "final", SubResource( 57 ), "final", "idle", SubResource( 58 ), "special", "hurt", SubResource( 59 ), "final", "hurt", SubResource( 60 ), "fall", "hurt", SubResource( 61 ), "basic", "hurt", SubResource( 62 ), "idle", "hurt", SubResource( 63 ), "hurt", "idle", SubResource( 64 ), "hurt", "fall", SubResource( 65 ), "idle", "die", SubResource( 66 ), "hurt", "die", SubResource( 67 ), "fall", "die", SubResource( 68 ), "basic", "die", SubResource( 69 ), "special", "die", SubResource( 70 ), "die", "death", SubResource( 71 ), "death", "idle", SubResource( 72 ), "idle", "run", SubResource( 73 ), "fall", "run", SubResource( 74 ), "run", "basic", SubResource( 75 ), "basic", "run", SubResource( 76 ), "run", "jump_start", SubResource( 77 ), "special", "run", SubResource( 78 ), "run", "special", SubResource( 79 ), "run", "final", SubResource( 80 ), "run", "hurt", SubResource( 81 ), "run", "die", SubResource( 82 ), "run", "dash", SubResource( 83 ), "idle", "dash", SubResource( 84 ), "jump_start", "dash", SubResource( 85 ), "jump", "dash", SubResource( 86 ), "fall", "dash", SubResource( 87 ), "dash", "run", SubResource( 88 ), "dash", "idle", SubResource( 89 ), "dash", "fall", SubResource( 90 ), "run", "idle", SubResource( 91 ), "run", "fall", SubResource( 92 ), "hurt", "parry", SubResource( 93 ), "idle", "parry", SubResource( 94 ), "dash", "parry", SubResource( 95 ), "run", "parry", SubResource( 96 ), "parry", "idle", SubResource( 97 ), "idle", "atack2", SubResource( 98 ), "atack2", "hurt", SubResource( 99 ), "basic", "atack2", SubResource( 100 ), "atack2", "special", SubResource( 101 ), "run", "atack2", SubResource( 102 ) ]
 start_node = "idle"
-graph_offset = Vector2( 151.116, 490.187 )
+graph_offset = Vector2( -57.981, 203.024 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=104]
 
@@ -1170,7 +1170,7 @@ texture = ExtResource( 11 )
 offset = Vector2( 27, 0 )
 vframes = 9
 hframes = 16
-frame = 71
+frame = 80
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -1250,10 +1250,12 @@ script = ExtResource( 1 )
 script = ExtResource( 10 )
 
 [node name="CancelBar" parent="." instance=ExtResource( 8 )]
+visible = false
 max_value = 6000.0
 allow_greater = false
 
 [node name="HealthBar" parent="." instance=ExtResource( 7 )]
+visible = false
 margin_left = -35.1518
 margin_top = -63.6442
 margin_right = 35.8482
@@ -1261,6 +1263,7 @@ margin_bottom = -47.6442
 rect_pivot_offset = Vector2( 35, 0 )
 
 [node name="StreakBar" parent="." instance=ExtResource( 6 )]
+visible = false
 max_value = 50.0
 percent_visible = false
 

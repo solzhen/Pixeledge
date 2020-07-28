@@ -114,7 +114,7 @@ func _physics_process(delta):
 	var j_jump = Input.is_action_just_pressed("jump" + "_" + str(player_index))
 	var h_jump = Input.is_action_pressed("jump" + "_" + str(player_index))
 	var r_jump = Input.is_action_just_released("jump" + "_" + str(player_index))
-	var basic = Input.is_action_just_pressed("basic" + "_" + str(player_index))
+	var basic = Input.is_action_pressed("basic" + "_" + str(player_index))
 	var special = Input.is_action_pressed("special" + "_" + str(player_index))
 	var dash = Input.is_action_just_pressed("dash" + "_" + str(player_index))
 	var final = Input.is_action_just_pressed("final" + "_" + str(player_index))

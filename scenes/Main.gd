@@ -37,4 +37,8 @@ func end(player_index):
 	get_tree().change_scene("res://scenes/Character Select.tscn")
 
 func _on_Quit_to_Menu_pressed():
+	get_tree().change_scene("res://scenes/Menu.tscn")
+
+
+func _on_Settings_pressed():
 	pass # Replace with function body.

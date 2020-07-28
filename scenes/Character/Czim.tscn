@@ -2021,7 +2021,7 @@ frame = 2
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 30, 5 )
+position = Vector2( 27, 16 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -2101,7 +2101,7 @@ volume_db = -10.0
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 3 )
-attack = 5
+attack = 3
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 9 )
@@ -2122,10 +2122,12 @@ script = ExtResource( 18 )
 script = ExtResource( 24 )
 
 [node name="CancelBar" parent="." instance=ExtResource( 8 )]
+visible = false
 max_value = 6000.0
 allow_greater = false
 
 [node name="HealthBar" parent="." instance=ExtResource( 7 )]
+visible = false
 margin_left = -35.1518
 margin_top = -63.6442
 margin_right = 35.8482
@@ -2133,6 +2135,7 @@ margin_bottom = -47.6442
 rect_pivot_offset = Vector2( 35, 0 )
 
 [node name="StreakBar" parent="." instance=ExtResource( 6 )]
+visible = false
 max_value = 50.0
 percent_visible = false
 
