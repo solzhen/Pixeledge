@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Character Select.gd" type="Script" id=1]
 [ext_resource path="res://textures/legoshitaro.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://textures/Babosa_icon.png" type="Texture" id=7]
 [ext_resource path="res://textures/Sam_icon.png" type="Texture" id=8]
 [ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://logo.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -27,6 +28,12 @@ margin_bottom = 718.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="background" type="Sprite" parent="CanvasLayer/Panel"]
+modulate = Color( 0.137255, 0.133333, 0.0941176, 1 )
+position = Vector2( 649.905, 415.311 )
+scale = Vector2( 1.11646, 1.10102 )
+texture = ExtResource( 10 )
 
 [node name="Icon_1" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 93.0004, 507.002 )

@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/Character/Babosa/SpecialHeavy.gd" type="Script" id=10]
 [ext_resource path="res://scenes/Character/Babosa/Trow.gd" type="Script" id=11]
 [ext_resource path="res://sounds/HitH_s.wav" type="AudioStream" id=12]
-[ext_resource path="res://sounds/Trumpet Fart-SoundBible.com-2075756858.wav" type="AudioStream" id=13]
+[ext_resource path="res://sounds/zerg.wav" type="AudioStream" id=13]
 [ext_resource path="res://sounds/spear1.wav" type="AudioStream" id=14]
 [ext_resource path="res://scenes/Character/Babosa/slug_sounds.gd" type="Script" id=15]
 [ext_resource path="res://sounds/slug_jump.wav" type="AudioStream" id=16]
@@ -428,7 +428,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -10.0 ]
+"values": [ -15.0 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -1501,7 +1501,6 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 18
 hframes = 6
-frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -1544,7 +1543,7 @@ script = ExtResource( 15 )
 
 [node name="Die" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 13 )
-volume_db = -10.0
+volume_db = -15.0
 mix_target = 2
 
 [node name="A1" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
