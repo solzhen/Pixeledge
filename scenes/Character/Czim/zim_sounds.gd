@@ -22,3 +22,6 @@ func _process(delta):
 	if $shock1.playing==true:
 		if anim ==("hurt"): 
 			$shock1.stop()
+	if $shock2.playing==true:
+		if anim ==("hurt"): 
+			$shock2.stop()

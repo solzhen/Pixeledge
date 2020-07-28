@@ -26,6 +26,7 @@
 [ext_resource path="res://scenes/Character/Czim/Spider_leg.gd" type="Script" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 60 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14, 4 )
@@ -517,6 +518,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 13.7007, -9.10496 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationTree/Sounds/dash:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -10.0 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -2003,12 +2016,12 @@ texture = ExtResource( 1 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 8
-frame = 48
+frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 54, 15 )
+position = Vector2( 30, 5 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -2035,6 +2048,7 @@ anims/special2 = SubResource( 23 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 126 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 process_mode = 0
 parameters/playback = SubResource( 127 )
 parameters/run/TimeScale/scale = 2.0
@@ -2056,6 +2070,7 @@ mix_target = 2
 
 [node name="dash" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 15 )
+volume_db = -10.0
 
 [node name="shock1" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 16 )
@@ -2086,7 +2101,7 @@ volume_db = -10.0
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 3 )
-attack = 1
+attack = 5
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 9 )
@@ -2126,6 +2141,6 @@ position = Vector2( -0.588071, 27.3303 )
 shape = SubResource( 128 )
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2( 21.719, -11.3568 )
+position = Vector2( -1.58917, -9.23784 )
 shape = SubResource( 129 )
 [connection signal="body_entered" from="Sprite/Attack" to="." method="_on_Attack_body_entered"]

@@ -11,13 +11,13 @@
 [ext_resource path="res://textures/slug1.1.png" type="Texture" id=9]
 [ext_resource path="res://scenes/Character/Babosa/SpecialHeavy.gd" type="Script" id=10]
 [ext_resource path="res://scenes/Character/Babosa/Trow.gd" type="Script" id=11]
-[ext_resource path="res://sounds/HitH_s.wav" type="AudioStream" id=12]
+[ext_resource path="res://sounds/slash6.wav" type="AudioStream" id=12]
 [ext_resource path="res://sounds/zerg.wav" type="AudioStream" id=13]
 [ext_resource path="res://sounds/spear1.wav" type="AudioStream" id=14]
 [ext_resource path="res://scenes/Character/Babosa/slug_sounds.gd" type="Script" id=15]
 [ext_resource path="res://sounds/slug_jump.wav" type="AudioStream" id=16]
 [ext_resource path="res://sounds/Strong_hit.wav" type="AudioStream" id=17]
-[ext_resource path="res://sounds/heavy_babosa.wav" type="AudioStream" id=18]
+[ext_resource path="res://sounds/slash4.wav" type="AudioStream" id=18]
 [ext_resource path="res://sounds/slugdash.wav" type="AudioStream" id=19]
 [ext_resource path="res://scenes/Character/Czim/SpoecialHeavy_up.gd" type="Script" id=20]
 [ext_resource path="res://sounds/tentaclet.wav" type="AudioStream" id=21]
@@ -119,7 +119,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.01 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 0.840896 ),
 "update": 1,
 "values": [ true ]
@@ -1164,10 +1164,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.04 ),
+"times": PoolRealArray( 0.05 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -13.782 ]
+"values": [ -20.782 ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("AnimationTree/Sounds/heavy:playing")
@@ -1188,10 +1188,10 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0.19 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -12.564 ]
+"values": [ -20.564 ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=21]
@@ -1501,13 +1501,13 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 18
 hframes = 6
+frame = 3
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
 position = Vector2( 18.0455, 9.14594 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 2 )
@@ -1547,7 +1547,7 @@ volume_db = -15.0
 mix_target = 2
 
 [node name="A1" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
-stream = ExtResource( 12 )
+stream = ExtResource( 18 )
 volume_db = -10.0
 mix_target = 2
 
@@ -1564,8 +1564,8 @@ stream = ExtResource( 16 )
 volume_db = -10.0
 
 [node name="heavy" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
-stream = ExtResource( 18 )
-volume_db = -12.564
+stream = ExtResource( 12 )
+volume_db = -15.564
 
 [node name="dash" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 19 )
@@ -1573,7 +1573,7 @@ volume_db = -10.0
 
 [node name="tentacle" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 21 )
-volume_db = -13.782
+volume_db = -20.782
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 2 )
