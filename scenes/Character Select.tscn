@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Character Select.gd" type="Script" id=1]
 [ext_resource path="res://textures/legoshitaro.png" type="Texture" id=2]
 [ext_resource path="res://textures/sam.png" type="Texture" id=3]
-[ext_resource path="res://fonts/Open_Sans/OpenSans-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://textures/readyc.png" type="Texture" id=4]
 [ext_resource path="res://textures/babosa.png" type="Texture" id=5]
 [ext_resource path="res://textures/Legoshitaro_icon.png" type="Texture" id=6]
 [ext_resource path="res://textures/Babosa_icon.png" type="Texture" id=7]
@@ -11,10 +11,7 @@
 [ext_resource path="res://textures/mini czim.png" type="Texture" id=9]
 [ext_resource path="res://logo.png" type="Texture" id=10]
 [ext_resource path="res://textures/czim-full.png" type="Texture" id=11]
-
-[sub_resource type="DynamicFont" id=1]
-size = 20
-font_data = ExtResource( 4 )
+[ext_resource path="res://textures/ready.png" type="Texture" id=12]
 
 [node name="Character Select" type="Node2D"]
 script = ExtResource( 1 )
@@ -87,17 +84,15 @@ position = Vector2( 790, 210 )
 scale = Vector2( -0.2, 0.2 )
 texture = ExtResource( 2 )
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 435.0
+[node name="Button" type="TextureButton" parent="CanvasLayer"]
+margin_left = 410.0
 margin_top = 200.339
-margin_right = 585.0
-margin_bottom = 275.339
-custom_fonts/font = SubResource( 1 )
+margin_right = 610.0
+margin_bottom = 250.339
 disabled = true
-text = "READY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
 
 [node name="Label1" type="Label" parent="CanvasLayer"]
 margin_left = 400.0
