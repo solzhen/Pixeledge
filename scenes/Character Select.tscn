@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Character Select.gd" type="Script" id=1]
 [ext_resource path="res://textures/legoshitaro.png" type="Texture" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://textures/Legoshitaro_icon.png" type="Texture" id=6]
 [ext_resource path="res://textures/Babosa_icon.png" type="Texture" id=7]
 [ext_resource path="res://textures/Sam_icon.png" type="Texture" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://textures/mini czim.png" type="Texture" id=9]
 [ext_resource path="res://logo.png" type="Texture" id=10]
+[ext_resource path="res://textures/czim-full.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -46,14 +47,14 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 8 )
 
 [node name="Icon_3" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 439.114, 506.002 )
+position = Vector2( 439.114, 507.002 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 7 )
 
 [node name="sam" type="Sprite" parent="CanvasLayer"]
 visible = false
 position = Vector2( 230, 210 )
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( -0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="legoshitaro" type="Sprite" parent="CanvasLayer"]
@@ -71,7 +72,7 @@ texture = ExtResource( 5 )
 [node name="babosa2" type="Sprite" parent="CanvasLayer"]
 visible = false
 position = Vector2( 790, 210 )
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( -0.2, 0.2 )
 texture = ExtResource( 5 )
 
 [node name="sam2" type="Sprite" parent="CanvasLayer"]
@@ -83,7 +84,7 @@ texture = ExtResource( 3 )
 [node name="legoshitaro2" type="Sprite" parent="CanvasLayer"]
 visible = false
 position = Vector2( 790, 210 )
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( -0.2, 0.2 )
 texture = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="CanvasLayer"]
@@ -118,19 +119,19 @@ __meta__ = {
 }
 
 [node name="Icon_4" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 627.541, 507.5 )
-scale = Vector2( 2.71134, 2.54746 )
+position = Vector2( 615, 507.5 )
+scale = Vector2( 0.29, 0.29 )
 texture = ExtResource( 9 )
 
 [node name="czim" type="Sprite" parent="CanvasLayer"]
 visible = false
-position = Vector2( 229.852, 205.798 )
-scale = Vector2( 5.23177, 6.37323 )
-texture = ExtResource( 9 )
+position = Vector2( 230, 210 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 11 )
 
 [node name="czim2" type="Sprite" parent="CanvasLayer"]
 visible = false
-position = Vector2( 792.009, 210.252 )
-scale = Vector2( 4.92552, 6.28971 )
-texture = ExtResource( 9 )
+position = Vector2( 790, 210 )
+scale = Vector2( -0.2, 0.2 )
+texture = ExtResource( 11 )
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
