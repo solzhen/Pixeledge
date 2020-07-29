@@ -185,7 +185,8 @@ func _physics_process(delta):
 			playback.travel("idle")
 	else:
 		if linear_vel.y > 0:
-			playback.travel("fall")
+			if playback.get_current_node()!="hurt":
+				playback.travel("fall")
 		else:
 			playback.travel("jump")
 	

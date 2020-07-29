@@ -219,9 +219,9 @@ func _physics_process(delta):
 				linear_vel.y = -100
 			dash_timer.start()
 			
-	if (left or right) and basic: playback.travel("basic2")	
+	if playback.get_current_node()=="basic" and basic: playback.travel("basic2")	
 	if (left or right) and special: playback.travel("special2")	
-	
+	if (left or right) and basic: playback.travel("basic3")	
 	if left and not right:
 		if facing_right:
 			scale.x = -1
