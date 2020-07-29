@@ -28,13 +28,13 @@ func _ready():
 	
 	player1.connect("health_update", $UI, "health_update_p1")
 	player2.connect("health_update", $UI, "health_update_p2")
-	player1.connect("death",$Main,"end")
-	player2.connect("death",$Main,"end")	
+	
+	player1.connect("player_parried",$UI, "p1_parried")
+	player2.connect("player_parried",$UI, "p2_parried")
+	
 	add_child(player1)
 	add_child(player2)
 
-func end(player_index):
-	get_tree().change_scene("res://scenes/Character Select.tscn")
 
 func _on_Quit_to_Menu_pressed():
 	get_tree().change_scene("res://scenes/Menu.tscn")
