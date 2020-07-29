@@ -202,12 +202,13 @@ func _physics_process(delta):
 	if final:
 		playback.travel("final")
 	if parry:
-		$CancelBar.value -=cancel_min
-		if playback.get_current_node() != "parry":
-			if facing_right:
-				linear_vel.x=speed*3
-			else:
-				linear_vel.x=-speed*3
+		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
+		  playback.travel("parry")
+		  print($CancelBar.value)
+		  $CancelBar.value -=4
+		else: 
+		  $CancelBar.value -=4
+		  pass
 	if dash:
 		if dash_timer.get_time_left() == 0:
 			playback.travel("dash")
