@@ -12,6 +12,10 @@ onready var anim_playerp2 = get_node("AnimationPlayer2")
 
 onready var  parry_p1 = get_node("Parry_P1")
 onready var  parry_p2 = get_node("Parry_P2")
+var timer_parry_p1 = 0
+var timer_parry_p2 = 0
+var parry_p1_ready = true
+var parry_p2_ready = true
 
 onready var valor_vida_p1 = get_node("p1_lifebar/textura_P1")
 onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
@@ -22,16 +26,12 @@ func _ready():
 	parry_p2.play('Lleno')
 	actualizar_vida(100,100)
 	if Player1_char < 3:
-		print('p1 terrestre')
 		anim_playerp1.play("terrestre1")
 	else:
-		print('p1 alien')
 		anim_playerp1.play("alien")
 	if Player2_char < 3:
-		print('p2 terrestre')
 		anim_playerp2.play("terrestre2")
 	else:
-		print('p2 alien')
 		anim_playerp2.play("alien2") 
 	pass # Replace with function body.
 
@@ -39,13 +39,35 @@ func actualizar_vida(a,b):
 	print('se intento')
 	valor_vida_p1.value = a
 	valor_vida_p2.value = b
-
 func health_update_p1(value):
 	valor_vida_p1.value = value
-	
-
 func health_update_p2(value):
 	valor_vida_p2.value = value
+
+func p1_parried():
+	timer_parry_p1 = 1
+	parry_p1.play("Vaciar")
+	parry_p1_ready = false
+
+func recuperar_parry_p1():
+	parry_p1.play("Llenar")
+	parry_p1_ready = true
+	
+func p2_parried():
+	timer_parry_p2 = 1
+	parry_p2.play("Vaciar")
+	parry_p2_ready = false
+	
+func recuperar_parry_p2():
+	parry_p2.play("Llenar")
+	parry_p2_ready = true
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	timer_parry_p1 -= delta
+	timer_parry_p2 -= delta
+	if timer_parry_p1 < 0 and parry_p1_ready == false:
+		recuperar_parry_p1()
+	if timer_parry_p2 < 0 and parry_p2_ready == false:
+		recuperar_parry_p2()
 	pass
