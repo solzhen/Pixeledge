@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/czim_die.wav-16d9f054bd7ee7d6bee5fe7bcc4ddc63.sample"
+
+[deps]
+
+source_file="res://sounds/czim_die.wav"
+dest_files=[ "res://.import/czim_die.wav-16d9f054bd7ee7d6bee5fe7bcc4ddc63.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

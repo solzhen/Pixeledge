@@ -246,6 +246,8 @@ func _physics_process(delta):
 			
 	if (left or right) and basic: playback.travel("basic2")	
 	if (left or right) and special: playback.travel("special2")		
+	if special and (playback.get_current_node()=="special2" or playback.get_current_node()=="basic2"): 
+		playback.travel("special3")	
 			
 	if left and not right:
 		if facing_right:

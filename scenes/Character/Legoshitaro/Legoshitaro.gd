@@ -17,7 +17,7 @@ var dash_cooldown = 0.4
 
 var combo_timer = null
 var streak = 0
-var max_streak_delay = 1.4
+var max_streak_delay = 3
 var min_streak = 3
 var max_streak = 50
 
@@ -165,7 +165,7 @@ func _physics_process(delta):
 	if on_floor:
 		if basic or playback.get_current_node() == "basic": 
 			linear_vel.x = 0
-		if basic or playback.get_current_node() == "basic2": 
+		if basic or playback.get_current_node() == "atack2": 
 			linear_vel.x = 0
 		if basic or playback.get_current_node() == "combo1":
 			linear_vel.x = 0
@@ -221,6 +221,7 @@ func _physics_process(delta):
 			
 	if (left or right) and basic: playback.travel("atack2")	
 	if playback.get_current_node()=="atack2" and special: playback.travel("special")
+	if (left or right) and special: playback.travel("special2")	
 	
 	if left and not right:
 		if facing_right:
