@@ -1704,7 +1704,6 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 18
 hframes = 6
-frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 

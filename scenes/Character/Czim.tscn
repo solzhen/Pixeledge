@@ -2006,6 +2006,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 8
+frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -2037,6 +2038,7 @@ anims/special2 = SubResource( 23 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 126 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 process_mode = 0
 parameters/playback = SubResource( 127 )
 parameters/run/TimeScale/scale = 2.0
@@ -2136,6 +2138,6 @@ position = Vector2( -1.5892, 30 )
 shape = SubResource( 128 )
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2( 7.94601, -9.76756 )
+position = Vector2( -1.58917, -9.23784 )
 shape = SubResource( 129 )
 [connection signal="body_entered" from="Sprite/Attack" to="." method="_on_Attack_body_entered"]

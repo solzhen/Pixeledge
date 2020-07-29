@@ -9,7 +9,6 @@ func _ready():
 
 func _process(delta):
 	anim=get_parent().get("parameters/playback").get_current_node()
-
 	if $slosh.playing==true:
 		if anim ==("hurt"): 
 			$slosh.stop()

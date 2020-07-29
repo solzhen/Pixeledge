@@ -120,7 +120,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -8.0 ]
+"values": [ -10.0 ]
 }
 
 [sub_resource type="Animation" id=112]
@@ -1441,7 +1441,7 @@ texture = ExtResource( 9 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 7
-frame = 31
+frame = 5
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -1472,6 +1472,7 @@ anims/special = SubResource( 16 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 108 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 process_mode = 0
 parameters/playback = SubResource( 109 )
 parameters/run/TimeScale/scale = 2.0
@@ -1503,7 +1504,7 @@ volume_db = -10.0
 
 [node name="slash3" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 18 )
-volume_db = -8.0
+volume_db = -10.0
 
 [node name="hurt" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 19 )
