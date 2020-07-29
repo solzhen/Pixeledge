@@ -203,9 +203,10 @@ func _physics_process(delta):
 		playback.travel("final")
 	if parry:
 		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
-		  playback.travel("parry")
-		  print($CancelBar.value)
-		  $CancelBar.value -=4
+			emit_signal("player_parried")
+			playback.travel("parry")
+			print($CancelBar.value)
+			$CancelBar.value -=4
 		else: 
 		  $CancelBar.value -=4
 		  pass

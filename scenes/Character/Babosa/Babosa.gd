@@ -8,6 +8,7 @@ var health = max_health
 var death = false
 
 signal health_update(value)
+signal player_parried()
 
 # dash 
 var dash_timer = null
@@ -216,6 +217,7 @@ func _physics_process(delta):
 
 	if parry:
 		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
+			emit_signal("player_parried")
 			playback.travel("parry")
 			print($CancelBar.value)
 			$CancelBar.value -=4
