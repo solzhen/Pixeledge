@@ -192,19 +192,21 @@ func _physics_process(delta):
 			playback.travel("jump")
 	
 	# This is placed last in order to overwrite the current state
-	if parry  and playback.get_current_node() != "parry":
-		if $CancelBar.value>10:
-			emit_signal("player_parried")
-			playback.travel("parry")
-			print($CancelBar.value)
-			
 	if playback.get_current_node()=="basic":
 		if special:
 			playback.travel("basic2")
 	if playback.get_current_node()=="special":
 		if special:
 			playback.travel("basic2")	
-	
+	if parry:
+		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
+			emit_signal("player_parried")
+			playback.travel("parry")
+			print($CancelBar.value)
+			$CancelBar.value -=4
+		else: 
+		  $CancelBar.value -=4
+		  pass
 	if basic:
 		playback.travel("basic")
 	if special:

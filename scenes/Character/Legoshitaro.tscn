@@ -1292,7 +1292,7 @@ texture = ExtResource( 11 )
 offset = Vector2( 27, 0 )
 vframes = 9
 hframes = 16
-frame = 83
+frame = 72
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 

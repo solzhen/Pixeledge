@@ -29,7 +29,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14, 4 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.908
 step = 0.05
 tracks/0/type = "value"
@@ -165,7 +165,7 @@ tracks/10/keys = {
 "values": [ -10.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.697
 step = 0.05
 tracks/0/type = "value"
@@ -321,7 +321,7 @@ tracks/12/keys = {
 "values": [ -13.0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.466
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -442,7 +442,7 @@ tracks/9/keys = {
 "values": [ -10.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -494,7 +494,7 @@ tracks/3/keys = {
 "values": [ -10.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -524,7 +524,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.726
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -563,7 +563,7 @@ tracks/2/keys = {
 "values": [ -15.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -578,7 +578,7 @@ tracks/0/keys = {
 "values": [ 16 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 0.4
 loop = true
 step = 0.2
@@ -595,10 +595,10 @@ tracks/0/keys = {
 "values": [ 28 ]
 }
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=10]
 radius = 40.0
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 length = 1.007
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -694,7 +694,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 11 ) ]
+"values": [ SubResource( 10 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("AnimationTree/Sounds/wave_shock:volume_db")
@@ -709,7 +709,7 @@ tracks/8/keys = {
 "values": [ -6.98 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 length = 0.112
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -866,7 +866,7 @@ tracks/12/keys = {
 "values": [ -10.0 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 length = 0.775
 loop = true
 step = 0.2
@@ -955,7 +955,7 @@ tracks/6/keys = {
 "values": [ Vector2( -1.58917, -9.23784 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -983,7 +983,7 @@ tracks/1/keys = {
 "values": [ Vector2( -2.11887, -10.2973 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 length = 0.261
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1022,10 +1022,10 @@ tracks/2/keys = {
 "values": [ Vector2( 0.250673, -2.1588 ), Vector2( -2.10901, -11.5976 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=17]
+[sub_resource type="CircleShape2D" id=16]
 radius = 40.0
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 length = 0.716
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1121,7 +1121,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 17 ) ]
+"values": [ SubResource( 16 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("Sprite/Attack/Hitbox:shape:radius")
@@ -1182,11 +1182,11 @@ tracks/12/keys = {
 "values": [ -10.0 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=19]
+[sub_resource type="CapsuleShape2D" id=18]
 radius = 5.0
 height = 15.0
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=19]
 length = 0.482
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1270,7 +1270,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0.000157059 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 19 ) ]
+"values": [ SubResource( 18 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("Sprite/Attack/Hitbox:shape:radius")
@@ -1379,7 +1379,7 @@ tracks/15/keys = {
 "values": [ -10.0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=20]
 length = 0.791
 loop = true
 step = 0.2
@@ -1420,7 +1420,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=21]
 length = 0.256
 step = 0.05
 tracks/0/type = "value"
@@ -1554,7 +1554,7 @@ tracks/10/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 50, 15 )
 
 [sub_resource type="Animation" id=23]
@@ -1630,7 +1630,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 2 ) ]
+"values": [ SubResource( 22 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Body:position")
@@ -2006,7 +2006,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 8
-frame = 2
+frame = 1
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -2016,23 +2016,23 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/area_atack = SubResource( 3 )
-anims/atack2 = SubResource( 4 )
-anims/attack = SubResource( 5 )
-anims/dash = SubResource( 6 )
-anims/death = SubResource( 7 )
-anims/die = SubResource( 8 )
-anims/end_run = SubResource( 9 )
-anims/fall = SubResource( 10 )
-anims/final = SubResource( 12 )
-anims/hurt = SubResource( 13 )
-anims/idle = SubResource( 14 )
-anims/jump = SubResource( 15 )
-anims/jump_start = SubResource( 16 )
-anims/parry = SubResource( 18 )
-anims/post-parry = SubResource( 20 )
-anims/run = SubResource( 21 )
-anims/special = SubResource( 22 )
+anims/area_atack = SubResource( 2 )
+anims/atack2 = SubResource( 3 )
+anims/attack = SubResource( 4 )
+anims/dash = SubResource( 5 )
+anims/death = SubResource( 6 )
+anims/die = SubResource( 7 )
+anims/end_run = SubResource( 8 )
+anims/fall = SubResource( 9 )
+anims/final = SubResource( 11 )
+anims/hurt = SubResource( 12 )
+anims/idle = SubResource( 13 )
+anims/jump = SubResource( 14 )
+anims/jump_start = SubResource( 15 )
+anims/parry = SubResource( 17 )
+anims/post-parry = SubResource( 19 )
+anims/run = SubResource( 20 )
+anims/special = SubResource( 21 )
 anims/special2 = SubResource( 23 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
