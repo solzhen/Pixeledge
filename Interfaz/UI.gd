@@ -10,11 +10,16 @@ onready var player2 = get_node('res://scenes/main/player2')
 onready var anim_playerp1 = get_node("AnimationPlayer")
 onready var anim_playerp2 = get_node("AnimationPlayer2")
 
+onready var  parry_p1 = get_node("Parry_P1")
+onready var  parry_p2 = get_node("Parry_P2")
+
 onready var valor_vida_p1 = get_node("p1_lifebar/textura_P1")
 onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
+	parry_p1.play('Lleno')
+	parry_p2.play('Lleno')
 	actualizar_vida(100,100)
 	if Player1_char < 3:
 		print('p1 terrestre')
