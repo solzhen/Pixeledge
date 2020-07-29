@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+extends Node
+
+var knockback = Vector2()
+var damage = 50
+
+func _ready():
+	knockback.x = 100
+	knockback.y = 0
+=======
+extends Node
+
+var knockback = Vector2()
+var damage = 50
+
+func _ready():
+	knockback.x = 100
+	knockback.y = 0
+>>>>>>> a48b2767e8eb1c9dc6d77ff19720b26d071a6842
