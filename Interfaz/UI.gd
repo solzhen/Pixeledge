@@ -4,6 +4,9 @@ var Player1_char = Global.player_1
 var Player2_char = Global.player_2
 var P1_life = 0
 var P2_life = 0
+var score=[Global.score_p1,Global.score_p2]
+var rounds=Global.N_of_rounds
+
 onready var player1 = get_node('res://scenes/main/player1')
 onready var player2 = get_node('res://scenes/main/player2')
 
@@ -47,34 +50,28 @@ func health_update_p2(value):
 	valor_vida_p2.value = value
 
 func p1_parried():
-	timer_parry_p1 = 1
 	parry_p1.play("Vaciar")
 	parry_p1_ready = false
 
-func recuperar_parry_p1():
+func parry_p1_ready():
 	parry_p1.play("Llenar")
 	parry_p1_ready = true
 	
 func p2_parried():
-	timer_parry_p2 = 1
 	parry_p2.play("Vaciar")
 	parry_p2_ready = false
 	
-func recuperar_parry_p2():
+func parry_p2_ready():
 	parry_p2.play("Llenar")
 	parry_p2_ready = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	timer_parry_p1 -= delta
-	timer_parry_p2 -= delta
-	if timer_parry_p1 < 0 and parry_p1_ready == false:
-		recuperar_parry_p1()
-	if timer_parry_p2 < 0 and parry_p2_ready == false:
-		recuperar_parry_p2()
 	pass
 	
+	
 func p1_wins():
+	Global.score_p1+=1
 	print("P1 WINS")
 	$p1wins.show()
 	#get_node("Label").text = "Player 1 wins"
@@ -90,6 +87,7 @@ func on_p1_victory():
 	return
 	
 func p2_wins():
+	Global.score_p2+=1
 	print("P2 WINS")
 	$p2wins.show()
 	#get_node("Label").text = "Player 2 wins"
