@@ -9,6 +9,7 @@ var death = false
 
 signal health_update(value)
 signal player_parried()
+signal death()
 
 # dash 
 var dash_timer = null
@@ -116,7 +117,7 @@ func _physics_process(delta):
 	var h_jump = Input.is_action_pressed("jump" + "_" + str(player_index))
 	var r_jump = Input.is_action_just_released("jump" + "_" + str(player_index))
 	var basic = Input.is_action_just_pressed("basic" + "_" + str(player_index))
-	var special = Input.is_action_pressed("special" + "_" + str(player_index))
+	var special = Input.is_action_just_pressed("special" + "_" + str(player_index))
 	var dash = Input.is_action_just_pressed("dash" + "_" + str(player_index))
 	var final = Input.is_action_just_pressed("final" + "_" + str(player_index))
 	var right = Input.is_action_pressed("right" + "_" + str(player_index))
@@ -129,6 +130,7 @@ func _physics_process(delta):
 		print('se murio')
 	## TODO: parry animation, set parry state, change parry handle on attacker
 	if die or death:
+		emit_signal("death")
 		death = true
 		playback.travel("death")
 		return
@@ -231,7 +233,7 @@ func _physics_process(delta):
 		if not facing_right:
 			scale.x = -1
 			$HealthBar.rect_scale.x *= -1
-		facing_right = true
+		facing_right = true	
 
 func _on_Continue_pressed():
 	pass # Replace with function body.

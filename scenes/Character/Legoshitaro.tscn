@@ -26,7 +26,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 55, 35 )
+extents = Vector2( 60.2738, 33.0845 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "atack2"
@@ -1318,15 +1318,14 @@ texture = ExtResource( 11 )
 offset = Vector2( 27, 0 )
 vframes = 9
 hframes = 16
-frame = 78
+frame = 122
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 40, 15 )
+position = Vector2( 29.794, 25.2611 )
 scale = Vector2( 1, 1.5 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/atack2 = SubResource( 2 )
@@ -1366,7 +1365,7 @@ stream = ExtResource( 13 )
 
 [node name="slosh" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 14 )
-volume_db = -19.01
+volume_db = -15.01
 
 [node name="dash" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 15 )
@@ -1401,7 +1400,7 @@ volume_db = -13.0
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 3 )
-attack = 1
+attack = 4
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 9 )
@@ -1441,6 +1440,6 @@ position = Vector2( -0.617555, 11.5064 )
 shape = SubResource( 113 )
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2( -1.415, -20 )
+position = Vector2( -2, -15 )
 shape = SubResource( 114 )
 [connection signal="body_entered" from="Sprite/Attack" to="." method="_on_Attack_body_entered"]

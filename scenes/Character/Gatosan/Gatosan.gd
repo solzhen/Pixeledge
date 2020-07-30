@@ -8,6 +8,7 @@ var health = max_health
 var death = false
 
 signal health_update(value)
+signal death()
 
 # dash 
 var dash_timer = null
@@ -128,6 +129,7 @@ func _physics_process(delta):
 		print('se murio')
 	## TODO: parry animation, set parry state, change parry handle on attacker
 	if die or death:
+		emit_signal("death")
 		death = true
 		playback.travel("death")
 		return
@@ -230,6 +232,7 @@ func _physics_process(delta):
 			scale.x = -1
 			$HealthBar.rect_scale.x *= -1
 		facing_right = true
+	if death: emit_signal(death)
 
 func _on_Continue_pressed():
 	pass # Replace with function body.
