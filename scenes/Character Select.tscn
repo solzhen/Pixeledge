@@ -132,10 +132,10 @@ scale = Vector2( -0.2, 0.2 )
 texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 442.298
-margin_top = 81.4134
-margin_right = 579.298
-margin_bottom = 146.413
+margin_left = 448.655
+margin_top = 25.7916
+margin_right = 585.655
+margin_bottom = 90.7916
 custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0.937255, 0.882353, 0.694118, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -146,10 +146,10 @@ __meta__ = {
 }
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Label"]
-margin_left = -28.4357
-margin_top = 36.5428
-margin_right = 27.5643
-margin_bottom = 78.5428
+margin_left = -27.906
+margin_top = 37.6023
+margin_right = 28.094
+margin_bottom = 79.6023
 custom_fonts/font = ExtResource( 13 )
 custom_constants/check_vadjust = 0
 text = "1"
