@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Character Select.gd" type="Script" id=1]
 [ext_resource path="res://textures/legoshitaro.png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://logo.png" type="Texture" id=10]
 [ext_resource path="res://textures/czim-full.png" type="Texture" id=11]
 [ext_resource path="res://textures/ready.png" type="Texture" id=12]
-[ext_resource path="res://fonts/SAns.tres" type="DynamicFont" id=13]
 
 [node name="Character Select" type="Node2D"]
 script = ExtResource( 1 )
@@ -30,7 +29,7 @@ __meta__ = {
 
 [node name="background" type="Sprite" parent="CanvasLayer/Panel"]
 modulate = Color( 0.137255, 0.133333, 0.0941176, 1 )
-position = Vector2( 650.612, 414.716 )
+position = Vector2( 649.905, 414.716 )
 scale = Vector2( 1.11646, 1.10102 )
 texture = ExtResource( 10 )
 
@@ -132,54 +131,46 @@ scale = Vector2( -0.2, 0.2 )
 texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 448.655
-margin_top = 25.7916
-margin_right = 585.655
-margin_bottom = 90.7916
-custom_fonts/font = ExtResource( 13 )
-custom_colors/font_color = Color( 0.937255, 0.882353, 0.694118, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "Nº of rounds:
+margin_left = 456.0
+margin_top = 262.0
+margin_right = 541.0
+margin_bottom = 241.0
+text = "	     Rounds?
 "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Label"]
-margin_left = -27.906
-margin_top = 37.6023
-margin_right = 28.094
-margin_bottom = 79.6023
-custom_fonts/font = ExtResource( 13 )
-custom_constants/check_vadjust = 0
+margin_left = -12.0
+margin_top = 28.0
+margin_right = 23.4054
+margin_bottom = 24.0
 text = "1"
-expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CheckBox2" type="CheckBox" parent="CanvasLayer/Label"]
-margin_left = 37.2586
-margin_top = 39.9254
-margin_right = 85.2586
-margin_bottom = 78.9254
-custom_fonts/font = ExtResource( 13 )
-text = "2"
+margin_left = 34.0
+margin_top = 28.0
+margin_right = 55.0
+margin_bottom = 24.0
+text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CheckBox3" type="CheckBox" parent="CanvasLayer/Label"]
-margin_left = 99.5784
-margin_top = 39.8062
-margin_right = 154.578
-margin_bottom = 79.8062
-custom_fonts/font = ExtResource( 13 )
-text = "3"
+margin_left = 83.0
+margin_top = 28.0
+margin_right = 26.0
+margin_bottom = 24.0
+text = "5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Label/CheckBox" to="." method="_on_CheckBox_pressed"]
-[connection signal="pressed" from="CanvasLayer/Label/CheckBox2" to="." method="_on_CheckBox2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Label/CheckBox3" to="." method="_on_CheckBox3_pressed"]
+[connection signal="toggled" from="CanvasLayer/Label/CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="toggled" from="CanvasLayer/Label/CheckBox2" to="." method="_on_CheckBox2_toggled"]
+[connection signal="toggled" from="CanvasLayer/Label/CheckBox3" to="." method="_on_CheckBox3_toggled"]
