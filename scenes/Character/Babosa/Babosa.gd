@@ -10,6 +10,8 @@ var death = false
 signal health_update(value)
 signal player_parried()
 
+signal death()
+
 # dash 
 var dash_timer = null
 var dash_cooldown = 0.4
@@ -134,6 +136,7 @@ func _physics_process(delta):
 		
 	
 	if die or death:
+		emit_signal("death")
 		death = true
 		playback.travel("death")
 		return
@@ -262,6 +265,7 @@ func _physics_process(delta):
 			scale.x = -1
 			$HealthBar.rect_scale.x *= -1
 		facing_right = true
+	if death: emit_signal(death)
 
 func _on_Continue_pressed():
 	pass # Replace with function body.
