@@ -16,7 +16,9 @@ var timer_parry_p1 = 0
 var timer_parry_p2 = 0
 var parry_p1_ready = true
 var parry_p2_ready = true
-
+var victory_p1 = null
+var victory_p2 = null
+var victory = 5
 onready var valor_vida_p1 = get_node("p1_lifebar/textura_P1")
 onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 # Called when the node enters the scene tree for the first time.
@@ -76,10 +78,28 @@ func p1_wins():
 	print("P1 WINS")
 	$p1wins.show()
 	#get_node("Label").text = "Player 1 wins"
+	victory_p1=Timer.new()
+	victory_p1.set_one_shot(true)
+	victory_p1.set_wait_time(victory)
+	victory_p1.connect("timeout",self,"on_p1_victory")
+	add_child(victory_p1)
+	victory_p1.start() 
+	return
+func on_p1_victory():
+	get_tree().reload_current_scene()
 	return
 	
 func p2_wins():
 	print("P2 WINS")
 	$p2wins.show()
 	#get_node("Label").text = "Player 2 wins"
+	victory_p2=Timer.new()
+	victory_p2.set_one_shot(true)
+	victory_p2.set_wait_time(victory)
+	victory_p2.connect("timeout",self,"on_p2_victory")
+	add_child(victory_p2)
+	victory_p2.start() 
+	return
+func 	on_p2_victory():
+	get_tree().reload_current_scene()
 	return
