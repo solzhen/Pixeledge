@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=2]
+[gd_scene load_steps=146 format=2]
 
 [ext_resource path="res://scenes/Character/Gatosan/BasicNeutral.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Character/Gatosan/Final.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://sounds/slash2.wav" type="AudioStream" id=18]
 [ext_resource path="res://sounds/hurt.wav" type="AudioStream" id=19]
 [ext_resource path="res://sounds/gato_die.wav" type="AudioStream" id=20]
+[ext_resource path="res://scenes/Character/Gatosan/basic_side.gd" type="Script" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -84,10 +85,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.00305025 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/5/type = "audio"
 tracks/5/path = NodePath("AnimationTree/Sounds/slash3")
@@ -186,7 +187,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 4 ]
 }
 tracks/5/type = "audio"
 tracks/5/path = NodePath("AnimationTree/Sounds/slash3")
@@ -1048,10 +1049,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.207417, 0.748312 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 1, 4 ]
 }
 tracks/5/type = "audio"
 tracks/5/path = NodePath("AnimationTree/Sounds/shock1")
@@ -1482,7 +1483,7 @@ texture = ExtResource( 9 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 7
-frame = 24
+frame = 49
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
@@ -1570,6 +1571,9 @@ script = ExtResource( 2 )
 
 [node name="Parry" type="Node" parent="Attacks"]
 script = ExtResource( 10 )
+
+[node name="basic_side" type="Node" parent="Attacks"]
+script = ExtResource( 21 )
 
 [node name="CancelBar" parent="." instance=ExtResource( 8 )]
 visible = false
