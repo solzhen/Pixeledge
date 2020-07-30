@@ -26,6 +26,8 @@ var parry_p2_ready = true
 var victory_p1 = null
 var victory_p2 = null
 var victory = 3
+var info_rondas_p1=''
+var info_rondas_p2=''
 onready var valor_vida_p1 = get_node("p1_lifebar/textura_P1")
 onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 # Called when the node enters the scene tree for the first time.
@@ -33,23 +35,25 @@ onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 func _ready():
 	print('rondas: '+str(rounds))
 	print("score: "+str(score[0])+' vs '+str(score[1]))
-	print("Terrestre "+str(rounds)+" "+str(score[0]))
-	print("Terrestre "+str(rounds)+" "+str(score[1]))
 	parry_p1.play('Lleno')
 	parry_p2.play('Lleno')
 	actualizar_vida(100,100)
 	if Player1_char < 3:
 		anim_playerp1.play("terrestre1")
-		puntaje_p1.play("Terrestre "+str(rounds)+" "+str(score[0]))
+		info_rondas_p1="Terrestre "+str(rounds)+" "
+		puntaje_p1.play(info_rondas_p1+str(score[0]))
 	else:
 		anim_playerp1.play("alien")
-		puntaje_p1.play("Alien "+str(rounds)+" "+str(score[0]))
+		info_rondas_p1="Alien "+str(rounds)+" "
+		puntaje_p1.play(info_rondas_p1+str(score[0]))
 	if Player2_char < 3:
 		anim_playerp2.play("terrestre2")
-		puntaje_p2.play("Terrestre "+str(rounds)+" "+str(score[1]))
+		info_rondas_p2="Terrestre "+str(rounds)+" "
+		puntaje_p2.play(info_rondas_p2+str(score[1]))
 	else:
 		anim_playerp2.play("alien2") 
-		puntaje_p2.play("Alien "+str(rounds)+" "+str(score[1]))
+		info_rondas_p2="Alien "+str(rounds)+" "
+		puntaje_p2.play(info_rondas_p2+str(score[1]))
 	pass # Replace with function body.
 
 func actualizar_vida(a,b):
@@ -84,9 +88,9 @@ func _process(delta):
 	
 func p1_wins():
 	Global.score_p1+=1
+	puntaje_p1.play(info_rondas_p1+str(Global.score_p1))
 	print("P1 WINS")
 	$p1wins.show()
-	#get_node("Label").text = "Player 1 wins"
 	victory_p1=Timer.new()
 	victory_p1.set_one_shot(true)
 	victory_p1.set_wait_time(victory)
@@ -95,14 +99,17 @@ func p1_wins():
 	victory_p1.start() 
 	return
 func on_p1_victory():
-	get_tree().reload_current_scene()
+	if score[0]+1 > rounds/2:
+		get_tree().change_scene("res://scenes/Character Select.tscn")
+	else:
+		get_tree().reload_current_scene()
 	return
 	
 func p2_wins():
 	Global.score_p2+=1
+	puntaje_p2.play(info_rondas_p2+str(Global.score_p2))
 	print("P2 WINS")
 	$p2wins.show()
-	#get_node("Label").text = "Player 2 wins"
 	victory_p2=Timer.new()
 	victory_p2.set_one_shot(true)
 	victory_p2.set_wait_time(victory)
@@ -111,5 +118,8 @@ func p2_wins():
 	victory_p2.start() 
 	return
 func 	on_p2_victory():
-	get_tree().reload_current_scene()
+	if score[1]+1 > rounds/2:
+		get_tree().change_scene("res://scenes/Character Select.tscn")
+	else:
+		get_tree().reload_current_scene()
 	return
