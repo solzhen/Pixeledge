@@ -73,11 +73,13 @@ func _process(delta):
 	pass
 	
 func p1_wins():
-	print("adsadasdasd")
-	get_node("Label").text = "Player 1 wins"
+	print("P1 WINS")
+	$p1wins.show()
+	#get_node("Label").text = "Player 1 wins"
 	return
 	
 func p2_wins():
-	print("ssssssss")
-	get_node("Label").text = "Player 2 wins"
+	print("P2 WINS")
+	$p2wins.show()
+	#get_node("Label").text = "Player 2 wins"
 	return

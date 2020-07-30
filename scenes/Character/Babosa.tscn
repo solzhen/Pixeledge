@@ -27,7 +27,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 20, 5 )
+extents = Vector2( 20, 10 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -1707,7 +1707,7 @@ states/special3/node = SubResource( 42 )
 states/special3/position = Vector2( 326.021, 754.164 )
 transitions = [ "idle", "basic", SubResource( 43 ), "fall", "idle", SubResource( 44 ), "basic", "idle", SubResource( 45 ), "jump", "fall", SubResource( 46 ), "jump", "basic", SubResource( 47 ), "fall", "basic", SubResource( 48 ), "basic", "special", SubResource( 49 ), "special", "idle", SubResource( 50 ), "idle", "special", SubResource( 51 ), "special", "basic", SubResource( 52 ), "special", "fall", SubResource( 53 ), "jump", "special", SubResource( 54 ), "fall", "special", SubResource( 55 ), "idle", "final_start", SubResource( 56 ), "special", "hurt", SubResource( 57 ), "final_start", "hurt", SubResource( 58 ), "fall", "hurt", SubResource( 59 ), "basic", "hurt", SubResource( 60 ), "idle", "hurt", SubResource( 61 ), "hurt", "idle", SubResource( 62 ), "idle", "die", SubResource( 63 ), "hurt", "die", SubResource( 64 ), "fall", "die", SubResource( 65 ), "basic", "die", SubResource( 66 ), "special", "die", SubResource( 67 ), "die", "death", SubResource( 68 ), "idle", "run", SubResource( 69 ), "fall", "run", SubResource( 70 ), "run", "basic", SubResource( 71 ), "basic", "run", SubResource( 72 ), "special", "run", SubResource( 73 ), "run", "special", SubResource( 74 ), "run", "hurt", SubResource( 75 ), "run", "die", SubResource( 76 ), "run", "dash", SubResource( 77 ), "idle", "dash", SubResource( 78 ), "jump", "dash", SubResource( 79 ), "fall", "dash", SubResource( 80 ), "dash", "run", SubResource( 81 ), "dash", "idle", SubResource( 82 ), "dash", "fall", SubResource( 83 ), "run", "idle", SubResource( 84 ), "basic", "combo1", SubResource( 85 ), "combo1", "hurt", SubResource( 86 ), "combo1", "idle", SubResource( 87 ), "combo1", "run", SubResource( 88 ), "idle", "combo1", SubResource( 89 ), "hurt", "parry", SubResource( 90 ), "idle", "parry", SubResource( 91 ), "run", "parry", SubResource( 92 ), "dash", "parry", SubResource( 93 ), "parry", "idle", SubResource( 94 ), "run", "combo1", SubResource( 95 ), "run", "jump", SubResource( 96 ), "idle", "jump", SubResource( 97 ), "final_end", "idle", SubResource( 98 ), "final_start", "final", SubResource( 99 ), "final", "final_end", SubResource( 100 ), "final", "hurt", SubResource( 101 ), "final_end", "hurt", SubResource( 102 ), "final_end", "run", SubResource( 103 ), "run", "final_start", SubResource( 104 ), "jump_start", "jump", SubResource( 105 ), "idle", "jump_start", SubResource( 106 ), "run", "jump_start", SubResource( 107 ), "jump_start", "hurt", SubResource( 108 ), "special2", "idle", SubResource( 109 ), "special2", "hurt", SubResource( 110 ), "special", "special2", SubResource( 111 ), "run", "special2", SubResource( 112 ), "idle", "special2", SubResource( 113 ), "basic", "basic2", SubResource( 114 ), "basic2", "hurt", SubResource( 115 ), "basic2", "idle", SubResource( 116 ), "idle", "basic2", SubResource( 117 ), "special2", "special3", SubResource( 118 ), "basic2", "special3", SubResource( 119 ), "special3", "idle", SubResource( 120 ), "special3", "hurt", SubResource( 121 ) ]
 start_node = "idle"
-graph_offset = Vector2( -82.671, 157.459 )
+graph_offset = Vector2( -82.671, 464.958 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=123]
 
@@ -1729,11 +1729,12 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 18
 hframes = 6
+frame = 6
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 15, -5 )
+position = Vector2( 13.0183, 13.6387 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -1818,7 +1819,7 @@ stream = ExtResource( 24 )
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 2 )
-attack = 5
+attack = 4
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 5 )

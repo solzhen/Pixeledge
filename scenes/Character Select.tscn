@@ -114,8 +114,8 @@ __meta__ = {
 }
 
 [node name="Icon_4" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 615, 507.5 )
-scale = Vector2( 0.29, 0.29 )
+position = Vector2( 620, 507.5 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 9 )
 
 [node name="czim" type="Sprite" parent="CanvasLayer"]
