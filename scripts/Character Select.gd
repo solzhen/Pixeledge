@@ -102,6 +102,8 @@ func _input(event):
 
 func _on_Button_pressed():
 	if rounds!=0:
+		Global.score_p1 = 0
+		Global.score_p2 = 0
 		get_tree().change_scene("res://scenes/Main.tscn")
 	
 
