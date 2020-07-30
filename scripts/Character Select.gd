@@ -106,25 +106,31 @@ func _on_Button_pressed():
 	
 
 
-func _on_CheckBox_toggled(button_pressed):
+func _on_CheckBox_pressed():
 	rounds=1
 	Global.N_of_rounds=rounds
-	$CanvasLayer/Label/CheckBox2.DRAW_PRESSED
-	$CanvasLayer/Label/CheckBox3.DRAW_PRESSED
+	$CanvasLayer/Label/CheckBox.pressed=true
+	$CanvasLayer/Label/CheckBox2.pressed=false
+	$CanvasLayer/Label/CheckBox3.pressed=false
 	pass # Replace with function body.
 
 
-func _on_CheckBox2_toggled(button_pressed):
+func _on_CheckBox2_pressed():
 	rounds=2
 	Global.N_of_rounds=rounds
-	$CanvasLayer/Label/CheckBox.DRAW_PRESSED
-	$CanvasLayer/Label/CheckBox3.DRAW_PRESSED
+	$CanvasLayer/Label/CheckBox.pressed=false
+	$CanvasLayer/Label/CheckBox2.pressed=true
+	$CanvasLayer/Label/CheckBox3.pressed=false
 	pass # Replace with function body.
 
 
-func _on_CheckBox3_toggled(button_pressed):
+func _on_CheckBox3_pressed():
 	rounds=3
 	Global.N_of_rounds=rounds
-	$CanvasLayer/Label/CheckBox.DRAW_PRESSED
-	$CanvasLayer/Label/CheckBox2.DRAW_PRESSED
+	$CanvasLayer/Label/CheckBox.pressed=false
+	$CanvasLayer/Label/CheckBox2.pressed=false
+	$CanvasLayer/Label/CheckBox3.pressed=true
 	pass # Replace with function body.
+
+
+
