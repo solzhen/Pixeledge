@@ -37,7 +37,7 @@ func _ready():
 	
 	add_child(player1)
 	add_child(player2)
-
+	
 func _on_Quit_to_Menu_pressed():
 	get_tree().change_scene("res://scenes/Menu.tscn")
 

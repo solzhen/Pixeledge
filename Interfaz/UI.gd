@@ -27,6 +27,7 @@ onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
+	print(Global.N_of_rounds)
 	parry_p1.play('Lleno')
 	parry_p2.play('Lleno')
 	actualizar_vida(100,100)

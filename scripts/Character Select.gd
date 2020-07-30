@@ -12,8 +12,10 @@ var SAM_ID = 2
 var BAB_ID = 3
 var ZIM_ID = 4
 
+var rounds=Global.N_of_rounds
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rounds=0
 	pass # Replace with function body.
 
 func _input(event):
@@ -99,5 +101,30 @@ func _input(event):
 	#print("Viewport Resolution is: ", get_viewport_rect().size)
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://scenes/Main.tscn")
+	if rounds!=0:
+		get_tree().change_scene("res://scenes/Main.tscn")
 	
+
+
+func _on_CheckBox_toggled(button_pressed):
+	rounds=1
+	Global.N_of_rounds=rounds
+	$CanvasLayer/Label/CheckBox2.DRAW_PRESSED
+	$CanvasLayer/Label/CheckBox3.DRAW_PRESSED
+	pass # Replace with function body.
+
+
+func _on_CheckBox2_toggled(button_pressed):
+	rounds=2
+	Global.N_of_rounds=rounds
+	$CanvasLayer/Label/CheckBox.DRAW_PRESSED
+	$CanvasLayer/Label/CheckBox3.DRAW_PRESSED
+	pass # Replace with function body.
+
+
+func _on_CheckBox3_toggled(button_pressed):
+	rounds=3
+	Global.N_of_rounds=rounds
+	$CanvasLayer/Label/CheckBox.DRAW_PRESSED
+	$CanvasLayer/Label/CheckBox2.DRAW_PRESSED
+	pass # Replace with function body.
