@@ -15,6 +15,10 @@ onready var anim_playerp2 = get_node("AnimationPlayer2")
 
 onready var  parry_p1 = get_node("Parry_P1")
 onready var  parry_p2 = get_node("Parry_P2")
+
+onready var puntaje_p1 = get_node("p1_lifebar/puntaje_p1")
+onready var puntaje_p2 = get_node("p2_lifebar/puntaje_p2")
+
 var timer_parry_p1 = 0
 var timer_parry_p2 = 0
 var parry_p1_ready = true
@@ -27,18 +31,21 @@ onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	print(Global.N_of_rounds)
 	parry_p1.play('Lleno')
 	parry_p2.play('Lleno')
 	actualizar_vida(100,100)
 	if Player1_char < 3:
 		anim_playerp1.play("terrestre1")
+		puntaje_p1.play("Terrestre "+str(rounds)+" "+str(score[0]))
 	else:
 		anim_playerp1.play("alien")
+		puntaje_p1.play("Alien "+str(rounds)+" "+str(score[0]))
 	if Player2_char < 3:
 		anim_playerp2.play("terrestre2")
+		puntaje_p2.play("Terrestre "+str(rounds)+" "+str(score[1]))
 	else:
 		anim_playerp2.play("alien2") 
+		puntaje_p2.play("Terrestre "+str(rounds)+" "+str(score[1]))
 	pass # Replace with function body.
 
 func actualizar_vida(a,b):
