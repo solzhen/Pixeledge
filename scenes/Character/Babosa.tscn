@@ -27,7 +27,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 10.5751, 17.4848 )
+extents = Vector2( 20, 5 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -558,7 +558,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.100994, 0.332383 ),
+"times": PoolRealArray( 0, 0.0277879, 0.332383 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -570,7 +570,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.154377, 0.298369, 0.333475 ),
+"times": PoolRealArray( 0.0298442, 0.154377, 0.298369, 0.333475 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 40.2801, 14.9916 ), Vector2( 90, 4 ), Vector2( 90, 4 ), Vector2( 14, 15 ) ]
@@ -582,7 +582,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.154714, 0.297826, 0.333475 ),
+"times": PoolRealArray( 0.0450955, 0.154714, 0.297826, 0.333475 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -5.23466, 17.1284 ), Vector2( 64.0668, -1.86528 ), Vector2( 100, 0.188 ), Vector2( -5.23466, 17.1284 ) ]
@@ -756,7 +756,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1 ),
+"times": PoolRealArray( 0.063397 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 40.2801, 14.9916 ) ]
@@ -768,7 +768,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
+"times": PoolRealArray( 0.0664472, 0.19695 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -5.23466, 17.1284 ), Vector2( 64.0668, -1.86528 ) ]
@@ -990,7 +990,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.043285, 0.11591, 0.198266, 0.350776 ),
+"times": PoolRealArray( 0, 0.043285, 0.11591, 0.237919, 0.350776 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( 20.5445, 6.94873 ), Vector2( -0.361567, -2.66806 ), Vector2( 30, 5 ), Vector2( 30, 15 ), Vector2( 13.0183, 13.6387 ) ]
@@ -1367,7 +1367,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.124608, 0.2384, 0.289774, 0.375181 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 5, 20 ), Vector2( 20, 5 ), Vector2( 50, 5 ), Vector2( 20, 5 ) ]
+"values": [ Vector2( 5, 20 ), Vector2( 20, 5 ), Vector2( 65, 5 ), Vector2( 20, 5 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Attacks:attack")
@@ -1729,12 +1729,12 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 18
 hframes = 6
-frame = 3
+frame = 2
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 20.5445, 6.94873 )
+position = Vector2( 15, -5 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -1787,7 +1787,7 @@ volume_db = -15.0
 
 [node name="S1" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 17 )
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 1.18
 
 [node name="jump" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
@@ -1819,7 +1819,7 @@ stream = ExtResource( 24 )
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 2 )
-attack = 3
+attack = 5
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 5 )

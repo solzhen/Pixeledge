@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=2]
+[gd_scene load_steps=145 format=2]
 
 [ext_resource path="res://scenes/Character/Gatosan/BasicNeutral.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Character/Gatosan/Final.gd" type="Script" id=2]
@@ -23,7 +23,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 47.9803, 36.552 )
+extents = Vector2( 25.3931, 14.9916 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "atack2"
@@ -1420,13 +1420,16 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=119]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=124]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id=120]
 states/basic/node = SubResource( 19 )
-states/basic/position = Vector2( 817.295, 645.287 )
+states/basic/position = Vector2( 805.295, 624.287 )
 states/basic2/node = SubResource( 20 )
 states/basic2/position = Vector2( 622.719, 686.984 )
 states/basic3/node = SubResource( 21 )
-states/basic3/position = Vector2( 667.719, 529.218 )
+states/basic3/position = Vector2( 654.719, 526.218 )
 states/dash/node = SubResource( 22 )
 states/dash/position = Vector2( 149.973, 87.2871 )
 states/death/node = SubResource( 23 )
@@ -1453,9 +1456,9 @@ states/special/node = SubResource( 35 )
 states/special/position = Vector2( 486.647, 551.382 )
 states/special2/node = SubResource( 36 )
 states/special2/position = Vector2( 315.209, 678.984 )
-transitions = [ "idle", "basic", SubResource( 37 ), "fall", "idle", SubResource( 38 ), "basic", "idle", SubResource( 39 ), "idle", "fall", SubResource( 40 ), "jump_start", "jump", SubResource( 41 ), "jump", "fall", SubResource( 42 ), "idle", "jump_start", SubResource( 43 ), "basic", "fall", SubResource( 44 ), "jump", "basic", SubResource( 45 ), "fall", "basic", SubResource( 46 ), "basic", "jump", SubResource( 47 ), "basic", "special", SubResource( 48 ), "special", "idle", SubResource( 49 ), "idle", "special", SubResource( 50 ), "special", "basic", SubResource( 51 ), "special", "jump", SubResource( 52 ), "special", "fall", SubResource( 53 ), "jump_start", "special", SubResource( 54 ), "jump", "special", SubResource( 55 ), "fall", "special", SubResource( 56 ), "special", "final", SubResource( 57 ), "basic", "final", SubResource( 58 ), "idle", "final", SubResource( 59 ), "final", "idle", SubResource( 60 ), "special", "hurt", SubResource( 61 ), "final", "hurt", SubResource( 62 ), "fall", "hurt", SubResource( 63 ), "basic", "hurt", SubResource( 64 ), "idle", "hurt", SubResource( 65 ), "hurt", "idle", SubResource( 66 ), "hurt", "fall", SubResource( 67 ), "idle", "die", SubResource( 68 ), "hurt", "die", SubResource( 69 ), "fall", "die", SubResource( 70 ), "basic", "die", SubResource( 71 ), "special", "die", SubResource( 72 ), "die", "death", SubResource( 73 ), "death", "idle", SubResource( 74 ), "idle", "run", SubResource( 75 ), "fall", "run", SubResource( 76 ), "run", "basic", SubResource( 77 ), "basic", "run", SubResource( 78 ), "run", "jump_start", SubResource( 79 ), "special", "run", SubResource( 80 ), "run", "special", SubResource( 81 ), "run", "final", SubResource( 82 ), "run", "hurt", SubResource( 83 ), "run", "die", SubResource( 84 ), "run", "dash", SubResource( 85 ), "idle", "dash", SubResource( 86 ), "jump_start", "dash", SubResource( 87 ), "jump", "dash", SubResource( 88 ), "fall", "dash", SubResource( 89 ), "dash", "run", SubResource( 90 ), "dash", "idle", SubResource( 91 ), "dash", "fall", SubResource( 92 ), "run", "idle", SubResource( 93 ), "run", "fall", SubResource( 94 ), "hurt", "parry", SubResource( 95 ), "idle", "parry", SubResource( 96 ), "dash", "parry", SubResource( 97 ), "run", "parry", SubResource( 98 ), "parry", "idle", SubResource( 99 ), "special", "special2", SubResource( 100 ), "special2", "basic", SubResource( 101 ), "special2", "idle", SubResource( 102 ), "special2", "hurt", SubResource( 103 ), "special2", "parry", SubResource( 104 ), "basic", "basic2", SubResource( 105 ), "special2", "basic2", SubResource( 106 ), "basic2", "hurt", SubResource( 107 ), "idle", "basic2", SubResource( 108 ), "basic2", "idle", SubResource( 109 ), "basic", "basic3", SubResource( 110 ), "basic3", "basic2", SubResource( 111 ), "basic3", "special", SubResource( 112 ), "idle", "basic3", SubResource( 113 ), "run", "basic3", SubResource( 114 ), "basic3", "hurt", SubResource( 115 ), "basic3", "final", SubResource( 116 ), "fall", "basic3", SubResource( 117 ), "basic3", "fall", SubResource( 118 ), "basic3", "basic", SubResource( 119 ) ]
+transitions = [ "idle", "basic", SubResource( 37 ), "fall", "idle", SubResource( 38 ), "basic", "idle", SubResource( 39 ), "idle", "fall", SubResource( 40 ), "jump_start", "jump", SubResource( 41 ), "jump", "fall", SubResource( 42 ), "idle", "jump_start", SubResource( 43 ), "basic", "fall", SubResource( 44 ), "jump", "basic", SubResource( 45 ), "fall", "basic", SubResource( 46 ), "basic", "jump", SubResource( 47 ), "basic", "special", SubResource( 48 ), "special", "idle", SubResource( 49 ), "idle", "special", SubResource( 50 ), "special", "basic", SubResource( 51 ), "special", "jump", SubResource( 52 ), "special", "fall", SubResource( 53 ), "jump_start", "special", SubResource( 54 ), "jump", "special", SubResource( 55 ), "fall", "special", SubResource( 56 ), "special", "final", SubResource( 57 ), "basic", "final", SubResource( 58 ), "idle", "final", SubResource( 59 ), "final", "idle", SubResource( 60 ), "special", "hurt", SubResource( 61 ), "final", "hurt", SubResource( 62 ), "fall", "hurt", SubResource( 63 ), "basic", "hurt", SubResource( 64 ), "idle", "hurt", SubResource( 65 ), "hurt", "idle", SubResource( 66 ), "hurt", "fall", SubResource( 67 ), "idle", "die", SubResource( 68 ), "hurt", "die", SubResource( 69 ), "fall", "die", SubResource( 70 ), "basic", "die", SubResource( 71 ), "special", "die", SubResource( 72 ), "die", "death", SubResource( 73 ), "death", "idle", SubResource( 74 ), "idle", "run", SubResource( 75 ), "fall", "run", SubResource( 76 ), "run", "basic", SubResource( 77 ), "basic", "run", SubResource( 78 ), "run", "jump_start", SubResource( 79 ), "special", "run", SubResource( 80 ), "run", "special", SubResource( 81 ), "run", "final", SubResource( 82 ), "run", "hurt", SubResource( 83 ), "run", "die", SubResource( 84 ), "run", "dash", SubResource( 85 ), "idle", "dash", SubResource( 86 ), "jump_start", "dash", SubResource( 87 ), "jump", "dash", SubResource( 88 ), "fall", "dash", SubResource( 89 ), "dash", "run", SubResource( 90 ), "dash", "idle", SubResource( 91 ), "dash", "fall", SubResource( 92 ), "run", "idle", SubResource( 93 ), "run", "fall", SubResource( 94 ), "hurt", "parry", SubResource( 95 ), "idle", "parry", SubResource( 96 ), "dash", "parry", SubResource( 97 ), "run", "parry", SubResource( 98 ), "parry", "idle", SubResource( 99 ), "special", "special2", SubResource( 100 ), "special2", "basic", SubResource( 101 ), "special2", "idle", SubResource( 102 ), "special2", "hurt", SubResource( 103 ), "special2", "parry", SubResource( 104 ), "basic", "basic2", SubResource( 105 ), "special2", "basic2", SubResource( 106 ), "basic2", "hurt", SubResource( 107 ), "idle", "basic2", SubResource( 108 ), "basic2", "idle", SubResource( 109 ), "basic", "basic3", SubResource( 110 ), "basic3", "basic2", SubResource( 111 ), "basic3", "special", SubResource( 112 ), "idle", "basic3", SubResource( 113 ), "run", "basic3", SubResource( 114 ), "basic3", "hurt", SubResource( 115 ), "basic3", "final", SubResource( 116 ), "fall", "basic3", SubResource( 117 ), "basic3", "fall", SubResource( 118 ), "basic3", "basic", SubResource( 119 ), "basic3", "idle", SubResource( 124 ) ]
 start_node = "idle"
-graph_offset = Vector2( 158.654, 156.577 )
+graph_offset = Vector2( 23.2341, 171.75 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=121]
 
@@ -1479,12 +1482,12 @@ texture = ExtResource( 9 )
 offset = Vector2( 27, 0 )
 vframes = 10
 hframes = 7
-frame = 3
+frame = 31
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 13.7591, 14.5617 )
+position = Vector2( 32.7528, -11.1055 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -1543,7 +1546,7 @@ volume_db = -10.0
 
 [node name="slash3" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 18 )
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="hurt" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 19 )
