@@ -12,6 +12,7 @@ signal player_parried()
 signal parry_ready()
 signal death()
 
+var death_signal_sent=false
 # dash 
 var dash_timer = null
 var dash_cooldown = 0.4
@@ -123,12 +124,12 @@ func _physics_process(delta):
 	var die = Input.is_action_pressed("die" + "_" + str(player_index))
 	var parry =  Input.is_action_pressed("parry" + "_" + str(player_index))
 	
-	if (position.x > 1120 or position.x <-100 or position.y > 700) and death == false:
-		death = true
-		print('se murio')
+
 	## TODO: parry animation, set parry state, change parry handle on attacker
 	if die or death:
-		emit_signal("death")
+		if death_signal_sent==false:
+			emit_signal("death")
+			death_signal_sent=true
 		death = true
 		playback.travel("death")
 		return
