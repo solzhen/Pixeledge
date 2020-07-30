@@ -9,6 +9,7 @@ var death = false
 
 signal health_update(value)
 signal player_parried()
+signal parry_ready()
 
 signal death()
 
@@ -26,6 +27,7 @@ var max_streak = 50
 
 # parry
 var p_timer=null
+var is_parry_ready=true
 var parry_step=0.5
 var cancel_min=10
 var cancel_max=60
@@ -70,9 +72,8 @@ func _ready():
 	p_timer=Timer.new()
 	p_timer.set_one_shot(true)
 	p_timer.set_wait_time(parry_step)
-	p_timer.connect("timeout",self,"on_parry_charged")
+	p_timer.connect("timeout",self,"parry_now_ready")
 	add_child(p_timer)
-	p_timer.start() 
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
 	$StreakBar.max_value = max_streak
@@ -89,12 +90,10 @@ func on_timeout_complete():  #tiempo expirado
 	streak = 0
 	$StreakBar.value=streak
 	
-func 	on_parry_charged(): #contador_parry
-	if $CancelBar.value<(cancel_max+1):
-		$CancelBar.value+=1
-	else:
-		$CancelBar.value=cancel_max
-	p_timer.start()
+func 	parry_now_ready(): #contador_parry
+	emit_signal("parry_ready")
+	is_parry_ready=true
+	
 	
 func take_damage(value: int):
 	if !death:
@@ -219,14 +218,11 @@ func _physics_process(delta):
 			 
 
 	if parry:
-		if $CancelBar.value>=cancel_min and playback.get_current_node() != "parry":
+		if is_parry_ready and playback.get_current_node() != "parry":
 			emit_signal("player_parried")
 			playback.travel("parry")
-			print($CancelBar.value)
-			$CancelBar.value -=4
-		else: 
-			$CancelBar.value -=4
-			pass
+			p_timer.start()
+			is_parry_ready=false
 	if basic:
 		if  playback.get_current_node() != "combo1":
 			playback.travel("basic")
