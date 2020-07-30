@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Character Select.gd" type="Script" id=1]
 [ext_resource path="res://textures/legoshitaro.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://logo.png" type="Texture" id=10]
 [ext_resource path="res://textures/czim-full.png" type="Texture" id=11]
 [ext_resource path="res://textures/ready.png" type="Texture" id=12]
+[ext_resource path="res://fonts/SAns.tres" type="DynamicFont" id=13]
 
 [node name="Character Select" type="Node2D"]
 script = ExtResource( 1 )
@@ -131,10 +132,13 @@ scale = Vector2( -0.2, 0.2 )
 texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 453.0
-margin_top = 94.0
-margin_right = 576.0
-margin_bottom = 152.0
+margin_left = 442.298
+margin_top = 81.4134
+margin_right = 579.298
+margin_bottom = 146.413
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0.937255, 0.882353, 0.694118, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Nº of rounds:
 "
 __meta__ = {
@@ -142,10 +146,11 @@ __meta__ = {
 }
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Label"]
-margin_left = -28.0153
-margin_top = 27.2929
-margin_right = 27.9847
-margin_bottom = 69.2929
+margin_left = -28.4357
+margin_top = 36.5428
+margin_right = 27.5643
+margin_bottom = 78.5428
+custom_fonts/font = ExtResource( 13 )
 custom_constants/check_vadjust = 0
 text = "1"
 expand_icon = true
@@ -154,20 +159,22 @@ __meta__ = {
 }
 
 [node name="CheckBox2" type="CheckBox" parent="CanvasLayer/Label"]
-margin_left = 36.8381
-margin_top = 29.4142
-margin_right = 84.8381
-margin_bottom = 68.4142
+margin_left = 37.2586
+margin_top = 39.9254
+margin_right = 85.2586
+margin_bottom = 78.9254
+custom_fonts/font = ExtResource( 13 )
 text = "2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CheckBox3" type="CheckBox" parent="CanvasLayer/Label"]
-margin_left = 101.732
-margin_top = 28.086
-margin_right = 156.732
-margin_bottom = 68.086
+margin_left = 99.5784
+margin_top = 39.8062
+margin_right = 154.578
+margin_bottom = 79.8062
+custom_fonts/font = ExtResource( 13 )
 text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
