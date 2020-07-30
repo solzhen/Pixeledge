@@ -26,15 +26,18 @@ margin_left = -2.37842
 margin_top = 1.18921
 margin_right = 1019.62
 margin_bottom = 593.189
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Graficos" type="Label" parent="Panel"]
 margin_left = 65.5137
 margin_top = 46.0
 margin_right = 309.514
 margin_bottom = 90.0
 text = "Arte y diseños"
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="Sonidos" type="Label" parent="Panel"]
 margin_left = 64.3244
 margin_top = 245.787
 margin_right = 308.324
@@ -44,7 +47,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="Panel"]
+[node name="Label" type="RichTextLabel" parent="Panel/Sonidos"]
+margin_top = 20.0
+margin_right = 310.0
+margin_bottom = 132.0
+text = "
+Sonidos generados con Bfxr Standalone V1.5.1  de Increpare (analytic@gmail.com)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Musica" type="Label" parent="Panel"]
 margin_left = 66.7029
 margin_top = 402.762
 margin_right = 310.703

@@ -27,7 +27,7 @@
 [ext_resource path="res://sounds/czim_die.wav" type="AudioStream" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 14, 4 )
+extents = Vector2( 25.3931, 14.9916 )
 
 [sub_resource type="Animation" id=2]
 length = 0.908
@@ -545,7 +545,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( -0.00305025 ),
+"times": PoolRealArray( 0.0152513 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -1021,6 +1021,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0.250673, -2.1588 ), Vector2( -2.10901, -11.5976 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationTree/Sounds/jump:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -10.0 ]
+}
 
 [sub_resource type="CircleShape2D" id=16]
 radius = 40.0
@@ -1179,7 +1191,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -10.0 ]
+"values": [ -15.0 ]
 }
 
 [sub_resource type="CapsuleShape2D" id=18]
@@ -2011,7 +2023,6 @@ frame = 1
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 70, 20 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -2068,7 +2079,7 @@ volume_db = -10.0
 
 [node name="smash" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 19 )
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="Hurt1" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 17 )
@@ -2080,7 +2091,7 @@ volume_db = -13.0
 
 [node name="shock2" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 21 )
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="strike" type="AudioStreamPlayer" parent="AnimationTree/Sounds"]
 stream = ExtResource( 22 )
@@ -2096,6 +2107,7 @@ volume_db = -15.0
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 3 )
+attack = 1
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 9 )

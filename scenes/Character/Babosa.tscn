@@ -27,7 +27,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 20, 10 )
+extents = Vector2( 10.5751, 17.4848 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -488,10 +488,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.0203763, 0.0611284, 0.874135 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.0306259, 0.874135 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ true, false ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("AnimationTree/Sounds/Die:volume_db")
@@ -1391,7 +1391,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -10.0 ]
+"values": [ -15.0 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("AnimationTree/Sounds/S1:playing")
@@ -1729,12 +1729,12 @@ script = ExtResource( 4 )
 texture = ExtResource( 9 )
 vframes = 18
 hframes = 6
-frame = 2
+frame = 3
 
 [node name="Attack" type="Area2D" parent="Sprite"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Sprite/Attack"]
-position = Vector2( 13.0183, 13.6387 )
+position = Vector2( 20.5445, 6.94873 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -1819,7 +1819,7 @@ stream = ExtResource( 24 )
 
 [node name="Attacks" type="Node" parent="."]
 script = ExtResource( 2 )
-attack = 4
+attack = 3
 
 [node name="BasicNeutral" type="Node" parent="Attacks"]
 script = ExtResource( 5 )
