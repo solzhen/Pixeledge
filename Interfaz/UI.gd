@@ -25,12 +25,16 @@ var parry_p1_ready = true
 var parry_p2_ready = true
 var victory_p1 = null
 var victory_p2 = null
-var victory = 5
+var victory = 3
 onready var valor_vida_p1 = get_node("p1_lifebar/textura_P1")
 onready var valor_vida_p2 = get_node("p2_lifebar/textura_P2")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
+	print('rondas: '+str(rounds))
+	print("score: "+str(score[0])+' vs '+str(score[1]))
+	print("Terrestre "+str(rounds)+" "+str(score[0]))
+	print("Terrestre "+str(rounds)+" "+str(score[1]))
 	parry_p1.play('Lleno')
 	parry_p2.play('Lleno')
 	actualizar_vida(100,100)
@@ -45,7 +49,7 @@ func _ready():
 		puntaje_p2.play("Terrestre "+str(rounds)+" "+str(score[1]))
 	else:
 		anim_playerp2.play("alien2") 
-		puntaje_p2.play("Terrestre "+str(rounds)+" "+str(score[1]))
+		puntaje_p2.play("Alien "+str(rounds)+" "+str(score[1]))
 	pass # Replace with function body.
 
 func actualizar_vida(a,b):
