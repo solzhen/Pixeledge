@@ -32,8 +32,8 @@ func _ready():
 	player1.connect("player_parried",$UI, "p1_parried")
 	player2.connect("player_parried",$UI, "p2_parried")
 	
-	player1.connect("murio",$UI, "p2_wins")
-	player2.connect("murio",$UI, "p1_wins")
+	player1.connect("death",$UI, "p2_wins")
+	player2.connect("death",$UI, "p1_wins")
 	
 	add_child(player1)
 	add_child(player2)
