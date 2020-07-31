@@ -40,10 +40,10 @@ __meta__ = {
 }
 
 [node name="Sound" type="Label" parent="Panel"]
-margin_left = 40.0
-margin_top = 320.0
-margin_right = 284.0
-margin_bottom = 364.0
+margin_left = 39.0
+margin_top = 405.0
+margin_right = 283.0
+margin_bottom = 449.0
 custom_fonts/font = SubResource( 1 )
 text = "Sound"
 __meta__ = {
@@ -52,7 +52,7 @@ __meta__ = {
 
 [node name="Label" type="RichTextLabel" parent="Panel/Sound"]
 margin_left = 10.0
-margin_top = 30.0
+margin_top = 10.0
 margin_right = 877.0
 margin_bottom = 130.0
 custom_fonts/mono_font = SubResource( 2 )
@@ -64,10 +64,10 @@ __meta__ = {
 }
 
 [node name="Graphics" type="Label" parent="Panel"]
-margin_left = 40.0
-margin_top = 180.0
-margin_right = 284.0
-margin_bottom = 224.0
+margin_left = 37.0
+margin_top = 205.0
+margin_right = 281.0
+margin_bottom = 249.0
 custom_fonts/font = SubResource( 1 )
 text = "Graphics"
 __meta__ = {
@@ -77,14 +77,16 @@ __meta__ = {
 [node name="Label" type="RichTextLabel" parent="Panel/Graphics"]
 margin_left = 10.0
 margin_top = 30.0
-margin_right = 710.0
-margin_bottom = 130.0
+margin_right = 884.0
+margin_bottom = 192.0
 custom_fonts/mono_font = SubResource( 2 )
 custom_fonts/normal_font = SubResource( 2 )
-text = "Concept art by
-Sprite art by
+text = "Concept art by Cristóbal Fuentes
+Character art by Cristóbal Fuentes
+Character Sprite art by Emilia Merino, Carlo Merino, Cristóbal Fuentes, Joaquin Carreño
+Stage Tileset and Background Art by Cristóbal Fuentes
 UI Desing: Joaquin Carreño
-Character Desing: "
+Character Desing: Cristóbal Fuentes, Joaquin Carreño, Carlo Merino"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,6 +113,30 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "Composer: Joaquin Carreño
 Producer: Joaquin Carreño
 Performed Digitally in Caustic"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Programming" type="Label" parent="Panel"]
+margin_left = 35.0
+margin_top = 140.0
+margin_right = 279.0
+margin_bottom = 201.0
+custom_fonts/font = SubResource( 1 )
+text = "Programming
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="Panel/Programming"]
+margin_left = 10.0
+margin_top = 30.0
+margin_right = 710.0
+margin_bottom = 130.0
+custom_fonts/mono_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 2 )
+text = " Joaquin Carreño, Cristóbal Fuentes, Carlo Merino"
 __meta__ = {
 "_edit_use_anchors_": false
 }
